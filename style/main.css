@@ -296,3 +296,51 @@ nav > ul > li::before {
 	}
 
 }
+
+/*PROJECT*/
+.project__images {
+	margin: 4em 0;
+	text-align: center;
+}
+.project__images img {
+	box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+	width: calc(100% / 3 - 4%);
+	margin: 0 1.2%;
+	opacity: 0.9;
+}
+.project__images img:nth-child(2n) {
+	margin: 0 -1em;
+	position: relative;
+	z-index: 1;
+	opacity: 1;
+	transform: scale(1.3);
+}
+.project__navigation {
+	text-align: center;
+}
+.project__link:not(:last-child) {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+@media (min-width: 769px) {
+	.project__images {
+		margin: 5em 0;
+	}
+	.project__navigation {
+		font-size: 1.2em;
+		text-align: inherit;
+	}
+	.project__content {
+		max-width: 33em;
+		margin-right: 3em;
+		float: left;
+	}
+	.project__aside {
+		box-sizing: border-box;
+		max-width: 17em;
+		margin-top: 0.7em;
+		float: left;
+		padding: 0.8em;
+	}
+}
