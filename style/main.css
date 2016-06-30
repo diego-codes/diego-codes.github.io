@@ -9,7 +9,7 @@ body {
 }
 
 /* TYPOGRAPHY */
-body {
+body, button {
 	font-family: "Merriweather", georgia, times, serif;
 	font-size: 14px;
 	font-weight: 300;
@@ -18,7 +18,7 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-	margin-top: 1.414em 0 0.5em;
+	margin: 1.414em 0 0.5em;
 	font-weight: inherit;
 	line-height: 1.2;
 }
@@ -43,15 +43,51 @@ small {font-size: 0.8em;}
 	small {font-size: 0.75em;}
 }
 
+/* Lists */
+ul, ol {
+	padding-left: 0.9em;
+	text-indent: -0.5em;
+}
+ul {
+	list-style: none;
+}
+ul > li::before {
+	content: "\0203A";
+	display: inline-block;
+	margin-right: 0.4em;
+	font-weight: 400;
+}
+li {
+	margin-bottom: 0.7em;
+}
+
 /* Buttons */
 a {
 	color: inherit;
 	text-decoration: none;
 	text-shadow: 1px 0 0 #FFF;
-	box-shadow: inset 0 -1px 0 #FFF, inset 0 -2px 0 #1DB0C8 ;
+	box-shadow: inset 0 -1px 0 #FFF, inset 0 -2px 0 #1DB0C8;
 }
+
+button {
+	font-size: 1em;
+
+	appearance: none;
+	background: none;
+	border: none;
+	color: #1DB0C8;
+	cursor: pointer;
+}
+
 a:hover {
-	box-shadow: inset 0 -1px 0 #FFF, inset 0 -3px 0 #1DB0C8 ;
+	box-shadow: inset 0 -1px 0 #FFF, inset 0 -3px 0 #1DB0C8;
+}
+
+a:active, a:focus,
+button:active, button:focus {
+	outline-width: 1px;
+	outline-color: #1DB0C8;
+	outline-style: dotted;
 }
 
 /* NAVIGATION */
@@ -69,16 +105,27 @@ nav > ul > li {
 	margin-right: 2em;
 	margin-bottom: 1.2em;
 }
+nav > ul > li::before {
+	content: "";
+	display: none;
+}
 
 /* ANIMATION */
+.animation {
+	animation-duration: 1000ms;
+	animation-timing-function: cubic-bezier(0.04, 0.13, 0.16, 0.99);
+	animation-fill-mode: both;
+}
+
 .animation--slide-over {
 	opacity: 0;
 	transform: translateX(-6rem);
-
 	animation-name: slide-over; 
-	animation-duration: 1000ms;
-	animation-timing-function: cubic-bezier(0.04, 0.13, 0.16, 0.99);
-	animation-fill-mode: forwards;
+}
+.animation--slide-back {
+	opacity: 0;
+	transform: translateX(6rem);
+	animation-name: slide-back; 
 }
 .animation--delay-1 {
 	animation-delay: 300ms;
@@ -100,7 +147,77 @@ nav > ul > li {
 		transform: translateX(0);
 	}
 }
+@keyframes slide-back {
+	from {
+		opacity: 0;
+		transform: translateX(6rem);
+	}
+	to {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
 
+
+/*=== MOLECULES ===*/
+/* CONTAINER */
+.container {
+	max-width: 54em;
+	margin: auto;
+	padding: 1.6em;
+}
+@media (min-width: 769px) {
+	.container--padded-top {
+		margin: 3em auto;
+	}
+}
+
+/* NAVIGATION */
+.navigation--header {
+	display: none;
+	float: right;
+	position: relative;
+	z-index: 1;
+}
+.navigation--header li {
+	margin-right: 0;
+	margin-left: 2em;
+}
+.navigation__button {
+	float: right;
+	height: 3em;
+	overflow: hidden;
+	width: 3em;
+	text-indent: -9999em;
+	position: relative;
+	z-index: 1;
+}
+.navigation__button::before {
+	content: "\02261";
+	display: table-cell;
+	height: 100%;
+	width: 100%;
+
+	position: absolute;
+	top:0;
+	left:0;
+	right: 0;
+	bottom: 0;
+
+	font-size: 3em;
+	line-height: 0.85;
+	text-indent: 0;
+
+	color: #1DB0C8;
+}
+@media (min-width: 769px) {
+	.navigation__button {
+		display: none;
+	}
+	.navigation--header {
+		display: block;
+	}
+}
 
 /*=== ORGANISMS ===*/
 /* INTRO */
@@ -109,9 +226,6 @@ nav > ul > li {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	max-width: 54em;
-	margin: auto;
-	padding: 1.6em;
 }
 
 @media (min-width: 769px) {
@@ -122,11 +236,63 @@ nav > ul > li {
 
 /* ABOUT */
 .about__content {
-	float: right;
-	max-width: 40em;
-
+	max-width: none;
 }
 
-
 .about__image {
+	display: none;
+}
+
+@media (min-width: 769px) {
+	.about__content {
+		max-width: 35em;
+	}
+	.about__image {
+		display: block;
+		width: 17em;;
+		float: right;
+		margin-left: 2em;
+		margin-bottom: 1em;
+	}
+}
+
+/* PROJECTS */
+.projects__list {
+	list-style: none;
+	text-indent: 0;
+	padding: 0;
+}
+.projects__item {
+	border-bottom: 1px dotted hsla(188, 50%, 60%, 1);
+	margin: 0;
+}
+.projects__item::before {
+	content: "";
+	display: none;
+}
+.projects__item:first-of-type {
+	border-top: 1px dotted hsla(188, 50%, 60%, 1);
+}
+.projects__link {
+	display: block;
+	padding: 0.8em 0;
+
+	font-size: 1.25em;
+
+	text-shadow: none;
+	box-shadow: none;
+}
+
+.projects__link:hover {
+	background-color: rgba(29, 178, 201, 0.15);
+	box-shadow: none;
+}
+@media (min-width: 769px) {
+	.projects__link {
+		transition: padding 250ms ease-in-out, background-color 250ms ease-in-out;
+	}
+	.projects__link:hover {
+		padding: 0.8em;
+	}
+
 }
