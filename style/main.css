@@ -343,6 +343,7 @@ nav > ul > li::before {
 	width: calc(100% / 3 - 4%);
 	margin: 0 1.2%;
 	opacity: 0.9;
+	vertical-align: middle;
 }
 .project__images img:nth-child(2n) {
 	margin: 0 -1em;
@@ -364,7 +365,7 @@ nav > ul > li::before {
 
 @media (min-width: 769px) {
 	.project__images {
-		margin: 5em 0;
+		margin: 5em 0 8em;
 	}
 	.project__navigation {
 		font-size: 1.2em;
