@@ -345,6 +345,12 @@ nav > ul > li::before {
 	opacity: 0.9;
 	vertical-align: middle;
 }
+.project__images img:only-child {
+	width: 60%;
+	max-width: 100%;
+	margin: -3em 0;
+	opacity: 1;
+}
 .project__images img:nth-child(2n) {
 	margin: 0 -1em;
 	position: relative;
