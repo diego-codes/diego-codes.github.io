@@ -75,8 +75,8 @@ button {
 	appearance: none;
 	background: none;
 	border: none;
-	color: #1DB0C8;
 	cursor: pointer;
+	color: #1DB0C8;
 }
 
 a:hover {
@@ -88,6 +88,21 @@ button:active, button:focus {
 	outline-width: 1px;
 	outline-color: #1DB0C8;
 	outline-style: dotted;
+}
+
+.button {
+	display: inline-block;
+	padding: 0.5em 1.1em;
+	border: 1px solid;
+	color: #1DB0C8;
+	box-shadow: none;
+	text-shadow: none;
+}
+
+.button:hover {
+	background: #1DB0C8;
+	color: #FFF;
+	box-shadow: none;
 }
 
 /* NAVIGATION */
@@ -322,6 +337,9 @@ nav > ul > li::before {
 	display: inline-block;
 	margin-right: 1em;
 }
+.project__next {
+	margin-top: 1.3em;
+}
 
 @media (min-width: 769px) {
 	.project__images {
@@ -334,12 +352,13 @@ nav > ul > li::before {
 	.project__content {
 		max-width: 33em;
 		margin-right: 3em;
+		margin-bottom: 3em;
 		float: left;
 	}
 	.project__aside {
 		box-sizing: border-box;
 		max-width: 17em;
-		margin-top: 0.7em;
+		margin-top: 0.9em;
 		float: left;
 		padding: 0.8em;
 	}
