@@ -194,30 +194,42 @@ nav > ul > li::before {
 /*=== MOLECULES ===*/
 /* HEADER */
 .header {
-	border-bottom: 1px solid #168698;
-	padding: 1.3em 0;
 	margin: 0 auto 3em;
+	padding: 0.5em 0;
+	border-bottom: 1px solid #168698;
+}
+
+@media (min-width: 769px) {
+	.header {
+		padding: 1.3em 0;
+	}
 }
 /* CONTAINER */
 .container {
 	max-width: 54em;
 	margin: auto;
-	padding: 0 1.6em;
+	padding: 0 1.6em 1.5em;
 }
 
 /* NAVIGATION */
 .navigation--header {
-	display: none;
-	float: right;
+	clear: both;
 	position: relative;
 	z-index: 1;
 }
 .navigation--header ul {
+	box-sizing: border-box;
+	overflow: hidden;
+	height: 0;
+	text-indent: 0;
 	margin: 0;
+	transition: height 300ms ease-in-out;
 }
 .navigation--header li {
-	margin-right: 0;
-	margin-left: 2em;
+	box-sizing: border-box;
+	display: inline-block;
+	margin-right: 2em;
+	padding: 1em 0;
 }
 .navigation__button {
 	float: right;
@@ -251,7 +263,17 @@ nav > ul > li::before {
 		display: none;
 	}
 	.navigation--header {
+		float: right;
 		display: block;
+	}
+	.navigation--header ul {
+		overflow: visible;
+		height: auto;
+	}
+	.navigation--header li {
+		padding: 0;
+		margin-left: 2em;
+		margin-right: 0;
 	}
 }
 
