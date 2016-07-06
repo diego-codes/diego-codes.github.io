@@ -229,8 +229,10 @@ nav > ul > li::before {
 	box-sizing: border-box;
 	display: inline-block;
 	margin-right: 2em;
+	margin-bottom: 0;
 	padding: 1em 0;
 }
+
 .navigation__button {
 	float: right;
 	height: 3em;
@@ -258,6 +260,7 @@ nav > ul > li::before {
 
 	color: #1DB0C8;
 }
+
 @media (min-width: 769px) {
 	.navigation__button {
 		display: none;
@@ -412,4 +415,12 @@ nav > ul > li::before {
 		float: left;
 		padding: 0.8em;
 	}
+}
+
+/* JS */
+.nojs .navigation__button {
+	display: none;
+}
+.nojs .navigation ul {
+	height: auto;
 }

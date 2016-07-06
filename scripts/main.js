@@ -1,5 +1,7 @@
 const test = true;
 
+document.body.className = document.body.className.replace("nojs", "");
+
 if (test) {
 	const button = document.getElementById("nav-btn"),
 				menu = document.getElementById("nav-menu"),
