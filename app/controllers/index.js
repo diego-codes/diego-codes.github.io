@@ -9,7 +9,7 @@ router.use('/about', AboutController);
 router.use('/projects', ProjectController);
 
 router.get('/', (req, res) => {
-  res.render('index');
+  res.render('index', {name: 'Miego Hernandez'});
 });
 
 router.get('/favicon.ico', (req, res) => {
