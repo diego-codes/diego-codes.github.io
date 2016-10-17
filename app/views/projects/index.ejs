@@ -15,7 +15,7 @@
     <ul class="projects__list">
       <% projects.forEach(function(project){ %>
         <li class="projects__item">
-          <a class="projects__link" href="/projects/<%= project.project_id %>"><%= project.title %></a>
+          <a class="projects__link" href="/projects/<%= project.id %>"><%= project.title %></a>
         </li>
       <% }); %>
     </ul>

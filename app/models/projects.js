@@ -1,7 +1,7 @@
 const db = require('../helpers/db');
 
 const getAll = (callback) => {
-  db.query('SELECT project_id, title FROM projects ORDER BY title DESC', (queryError, result) => {
+  db.query('SELECT id, title FROM projects ORDER BY title', (queryError, result) => {
     if (queryError) {
       return callback(queryError);
     }
@@ -12,14 +12,29 @@ const getAll = (callback) => {
 const getQuery = `
   SELECT title, description, github_link, demo_link
   FROM projects
-  WHERE project_id=`;
+  WHERE id=`;
+
+const getRolesQuery = `
+  SELECT roles.name
+  FROM roles, projects, project_roles
+  WHERE project_roles.project_id=projects.id
+  AND project_roles.role_id=roles.id
+  AND projects.id=`;
 
 const get = (projectId, callback) => {
-  db.query(`${getQuery}${projectId}`, (queryError, result) => {
+  db.query(`${getQuery}${projectId}`, (queryError, data) => {
     if (queryError) {
       return callback(queryError);
     }
-    return callback(null, result.rows[0]);
+    const result = data.rows[0];
+
+    db.query(`${getRolesQuery}${projectId}`, (queryError, roles) => {
+      result.roles = [];
+      for (const role of roles.rows) {
+        result.roles.push(role.name);
+      }
+      return callback(null, result);
+    });
   });
 }
 

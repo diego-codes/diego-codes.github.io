@@ -30,8 +30,9 @@
     <aside class="project__aside">
       <h3>My role</h3>
       <ul>
-        <li>Front-end Development</li>
-        <li>Design</li>
+        <% project.roles.forEach(function(role) { %>
+          <li><%= role %></li>
+        <% }); %>
       </ul>
       <h3>Tools I used</h3>
       <ul>
