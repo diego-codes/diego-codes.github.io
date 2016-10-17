@@ -1,0 +1,12 @@
+<header class="header">
+  <span class="logo">Diego Hernandez<span class="logo__accent">.</span></span>
+  <button id="nav-btn" class="navigation__button">Menu</button>
+  <nav id="nav-menu" class="navigation navigation--header">
+    <ul>
+      <li><a href="/">Home</a></li>
+      <% Object.keys(NAV).forEach(function (navKey) { %>
+        <li><a href="/<%= navKey.toLowerCase() %>/"><%= NAV[navKey] %></a></li>
+      <% }); %>
+    </ul>
+  </nav>
+</header>

@@ -1,17 +1,7 @@
 <%- include('../partials/header'); %>
   <div class="projects container container--padded-top">
-    <header class="header">
-      <span class="logo">Diego Hernandez<span class="logo__accent">.</span></span>
-      <button id="nav-btn" class="navigation__button">Menu</button>
-      <nav id="nav-menu" class="navigation navigation--header">
-        <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="/about/">About me</a></li>
-        </ul>
-      </nav>
-    </header>
-
-    <h1>My work.</h1>
+    <%- include('../partials/nav'); %>
+    <h1><%= title %>.</h1>
     <ul class="projects__list">
       <% projects.forEach(function(project){ %>
         <li class="projects__item">

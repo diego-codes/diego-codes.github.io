@@ -1,16 +1,7 @@
 <%- include('partials/header'); %>
   <div class="about container">
-    <header class="header">
-      <span class="logo">Diego Hernandez<span class="logo__accent">.</span></span>
-      <button id="nav-btn" class="navigation__button">Menu</button>
-      <nav id="nav-menu" class="navigation navigation--header">
-        <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="/projects/">My work</a></li>
-        </ul>
-      </nav>
-    </header>
-    <h1>About me.</h1>
+    <%- include('partials/nav'); %>
+    <h1><%= title %>.</h1>
     <img src="/public/imgs/diego_hernandez_sm.jpg" class="about__image" alt="">
     <div class="about__content animation">
       <p>I enjoy coding and design. I currently work at Spiceworks where I surround myself with very talented people to develop digital advertising experiences for companies like Microsoft, Lenovo, and HP. I use mostly front-end web technology to create these experiences as well as design tools and a little bit of back-end elbow grease to polish everything off.</p>

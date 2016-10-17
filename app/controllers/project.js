@@ -1,6 +1,10 @@
 const express = require('express');
-const Projects = require('../models/projects');
 const router = express.Router();
+
+const Projects = require('../models/projects');
+const {NAV} = require('../../config');
+
+const title = NAV.PROJECTS;
 
 router.get('/', (req, res) => {
   Projects.getAll((error, projects) => {
@@ -8,13 +12,13 @@ router.get('/', (req, res) => {
       res.redirect('/');
       throw error;
     }
-    res.render('projects/index', {projects});
+    res.render('projects/index', {NAV, title, projects});
   })
 });
 
 router.get('/:id', (req, res) => {
   Projects.get(req.params.id, (error, project) => {
-    res.render('projects/project', {project});
+    res.render('projects/project', {NAV, title, project});
   });
 });
 module.exports = router;

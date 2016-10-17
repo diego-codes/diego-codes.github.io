@@ -1,18 +1,7 @@
 <%- include('../partials/header'); %>
   <div class="project container">
-    <header class="header">
-      <span class="logo">Diego Hernandez<span class="logo__accent">.</span></span>
-      <button id="nav-btn" class="navigation__button">Menu</button>
-      <nav id="nav-menu" class="navigation navigation--header">
-        <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="/about">About me</a></li>
-          <li><a href="/projects">My work</a></li>
-        </ul>
-      </nav>
-    </header>
-
-    <h1 class="projects__title">My work.</h1>
+    <%- include('../partials/nav'); %>
+    <h1 class="projects__title"><%= title %>.</h1>
     <h2 class="projects__subtitle"><%= project.title %></h2>
     <div class="project__images">
       <img src="../imgs/projects/aen-notes-1.jpg" alt="Austin EcoNetwork notes screenshot">
