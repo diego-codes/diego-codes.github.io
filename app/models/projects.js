@@ -12,7 +12,7 @@ const getAll = (callback) => {
 const getQuery = `
   SELECT title, description, github_link, demo_link
   FROM projects
-  WHERE id=`;
+  WHERE id`;
 
 const getRolesQuery = `
   SELECT roles.name
@@ -22,11 +22,16 @@ const getRolesQuery = `
   AND projects.id=`;
 
 const get = (projectId, callback) => {
-  db.query(`${getQuery}${projectId}`, (queryError, data) => {
+  projectId = parseInt(projectId);
+  db.query(`${getQuery} BETWEEN ${projectId} AND ${projectId + 1}`, (queryError, data) => {
     if (queryError) {
       return callback(queryError);
     }
     const result = data.rows[0];
+
+    if (data.rows[1]) {
+      result.next = projectId + 1;
+    }
 
     db.query(`${getRolesQuery}${projectId}`, (queryError, roles) => {
       result.roles = [];

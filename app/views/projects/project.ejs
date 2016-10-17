@@ -40,8 +40,9 @@
         <li>Sass</li>
         <li>Sketch</li>
       </ul>
-
-      <a href="civic-tech-canvas.html" class="button project__next">Next Project</a>
+      <% if (project.next) { %>
+      <a href="/projects/<%= project.next %>" class="button project__next">Next Project</a>
+      <% } %>
     </aside>
 
   </div>
