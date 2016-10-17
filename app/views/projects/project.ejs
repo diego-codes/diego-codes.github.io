@@ -1,0 +1,47 @@
+<%- include('../partials/header'); %>
+  <div class="project container">
+    <header class="header">
+      <span class="logo">Diego Hernandez<span class="logo__accent">.</span></span>
+      <button id="nav-btn" class="navigation__button">Menu</button>
+      <nav id="nav-menu" class="navigation navigation--header">
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/about">About me</a></li>
+          <li><a href="/projects">My work</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <h1 class="projects__title">My work.</h1>
+    <h2 class="projects__subtitle"><%= project.title %></h2>
+    <div class="project__images">
+      <img src="../imgs/projects/aen-notes-1.jpg" alt="Austin EcoNetwork notes screenshot">
+      <img src="../imgs/projects/aen-notes-3.png" style="transform: scale(1); border-radius: 0.6em; margin: -3em -2em -4em;" alt="Austin EcoNetwork notes screenshot">
+      <img src="../imgs/projects/aen-notes-2.jpg" alt="Austin EcoNetwork notes screenshot">
+    </div>
+    <div class="project__content">
+      <nav class="project__navigation">
+        <a href="<%= project.demo_link %>" target="_blank" class="project__link">See live project</a>
+        <a href="<%= project.github_link %>" target="_blank" class="project__link">View code on Github</a>
+      </nav>
+
+      <%- project.description %>
+    </div>
+    <aside class="project__aside">
+      <h3>My role</h3>
+      <ul>
+        <li>Front-end Development</li>
+        <li>Design</li>
+      </ul>
+      <h3>Tools I used</h3>
+      <ul>
+        <li>Angular.js</li>
+        <li>Sass</li>
+        <li>Sketch</li>
+      </ul>
+
+      <a href="civic-tech-canvas.html" class="button project__next">Next Project</a>
+    </aside>
+
+  </div>
+<%- include('../partials/footer'); %>

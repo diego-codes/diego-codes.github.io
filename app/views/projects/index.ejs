@@ -1,36 +1,23 @@
 <%- include('../partials/header'); %>
-<div class="projects container container--padded-top">
-  <header class="header">
-    <span class="logo">Diego Hernandez<span class="logo__accent">.</span></span>
-    <button id="nav-btn" class="navigation__button">Menu</button>
-    <nav id="nav-menu" class="navigation navigation--header">
-      <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/about/">About me</a></li>
-      </ul>
-    </nav>
-  </header>
+  <div class="projects container container--padded-top">
+    <header class="header">
+      <span class="logo">Diego Hernandez<span class="logo__accent">.</span></span>
+      <button id="nav-btn" class="navigation__button">Menu</button>
+      <nav id="nav-menu" class="navigation navigation--header">
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/about/">About me</a></li>
+        </ul>
+      </nav>
+    </header>
 
-  <h1>My work.</h1>
-  <ul class="projects__list">
-    <li class="projects__item">
-      <a class="projects__link" href="austin-econetwork.html">Austin EcoNetwork Notes</a>
-    </li>
-    <li class="projects__item">
-      <a class="projects__link" href="civic-tech-canvas.html">Civic Tech Project Canvas</a>
-    </li>
-    <li class="projects__item">
-      <a class="projects__link" href="budget-box-app.html">City of Austin Budget in a Box</a>
-    </li>
-    <li class="projects__item">
-      <a class="projects__link" href="habanero.html">Habanero CSS Framework</a>
-    </li>
-    <li class="projects__item">
-      <a class="projects__link" href="microsoft.html">Microsoft Cloud Assessment Quiz</a>
-    </li>
-    <li class="projects__item">
-      <a class="projects__link" href="sharp.html">Sharp Printer Comparison Wizard</a>
-    </li>
-  </ul>
-</div>
-<%- include(../partials/footer); %>
+    <h1>My work.</h1>
+    <ul class="projects__list">
+      <% projects.forEach(function(project){ %>
+        <li class="projects__item">
+          <a class="projects__link" href="/projects/<%= project.project_id %>"><%= project.title %></a>
+        </li>
+      <% }); %>
+    </ul>
+  </div>
+<%- include('../partials/footer'); %>
