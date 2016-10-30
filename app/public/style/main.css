@@ -22,7 +22,7 @@ h1, h2, h3, h4, h5, h6 {
 	font-weight: inherit;
 	line-height: 1.2;
 }
-p { 
+p {
 margin: 0 0 1.3em;
 }
 
@@ -152,12 +152,12 @@ nav > ul > li::before {
 .animation--slide-over {
 	opacity: 0;
 	transform: translateX(-6rem);
-	animation-name: slide-over; 
+	animation-name: slide-over;
 }
 .animation--slide-back {
 	opacity: 0;
 	transform: translateX(6rem);
-	animation-name: slide-back; 
+	animation-name: slide-back;
 }
 .animation--delay-1 {
 	animation-delay: 300ms;
@@ -386,9 +386,12 @@ nav > ul > li::before {
 .project__navigation {
 	text-align: center;
 }
-.project__link:not(:last-child) {
+.project__link {
 	display: inline-block;
 	margin-right: 1em;
+}
+.project__link:last-child {
+	margin-right: 0;
 }
 .project__next {
 	margin-top: 1.3em;
