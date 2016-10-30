@@ -3,11 +3,13 @@
     <%- include('../partials/nav'); %>
     <h1 class="projects__title"><%= title %>.</h1>
     <h2 class="projects__subtitle"><%= project.title %></h2>
-    <div class="project__images">
-      <img src="../imgs/projects/aen-notes-1.jpg" alt="Austin EcoNetwork notes screenshot">
-      <img src="../imgs/projects/aen-notes-3.png" style="transform: scale(1); border-radius: 0.6em; margin: -3em -2em -4em;" alt="Austin EcoNetwork notes screenshot">
-      <img src="../imgs/projects/aen-notes-2.jpg" alt="Austin EcoNetwork notes screenshot">
-    </div>
+    <% if (project.images) { %>
+      <div class="project__images">
+        <% project.images.forEach(function(image) { %>
+          <img src="/public/imgs/projects/<%= image.url %>" alt="<%= image.description %>">
+        <% }) %>
+      </div>
+    <% } %>
     <div class="project__content">
       <nav class="project__navigation">
         <a href="<%= project.demo_link %>" target="_blank" class="project__link">See live project</a>
@@ -25,9 +27,9 @@
       </ul>
       <h3>Tools I used</h3>
       <ul>
-        <li>Angular.js</li>
-        <li>Sass</li>
-        <li>Sketch</li>
+        <% project.tools.forEach(function(tool) { %>
+          <li><%= tool %></li>
+        <% }); %>
       </ul>
       <% if (project.next) { %>
       <a href="/projects/<%= project.next %>" class="button project__next">Next Project</a>
