@@ -1,11 +1,16 @@
 import PropTypes from 'prop-types'
-import '../styles/globals.css'
+import GlobalStyles from '../components/GlobalStyles'
 
 export default function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
+  return (
+    <>
+      <GlobalStyles />
+      <Component {...pageProps} />
+    </>
+  )
 }
 
 MyApp.propTypes = {
-  Component: PropTypes.node.isRequired,
+  Component: PropTypes.elementType.isRequired,
   pageProps: PropTypes.objectOf(PropTypes.any).isRequired,
 }
