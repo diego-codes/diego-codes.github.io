@@ -16,8 +16,8 @@ pids
 coverage
 
 # test output
-
 .DS_Store
+.eslintcache
 
 # Editors
 .idea
