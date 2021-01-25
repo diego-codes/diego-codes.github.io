@@ -1,48 +1,47 @@
-import Footer from '../components/Footer'
+import PropTypes from 'prop-types'
+import LayoutContainer from '../components/LayoutContainer'
 import Hero from '../components/Hero'
 import ProjectCard from '../components/ProjectCard'
 import ProjectCardsGrid from '../components/ProjectCardsGrid'
 import TitledContent from '../components/TitledContent'
+import { getAllProjects } from '../lib/projects'
 
-export default function Home() {
+export async function getStaticProps() {
+  const projects = getAllProjects()
+
+  return {
+    props: {
+      projects: projects.map(({ frontmatter, slug }) => ({
+        ...frontmatter,
+        slug,
+      })),
+    },
+  }
+}
+
+export default function Home({ projects }) {
   return (
     <>
       <Hero />
-      <main>
+      <LayoutContainer>
         <TitledContent id="projects" heading="Projects">
           <ProjectCardsGrid>
-            <ProjectCard heading="Project name" img="/aen-notes-1.jpg" url="/">
-              This is a summary of this project
-            </ProjectCard>
-            <ProjectCard heading="Project name" img="/aen-notes-1.jpg" url="/">
-              This is a summary of this project
-            </ProjectCard>
-            <ProjectCard heading="Project name" img="/aen-notes-1.jpg" url="/">
-              This is a summary of this project
-            </ProjectCard>
-            <ProjectCard heading="Project name" img="/aen-notes-1.jpg" url="/">
-              This is a summary of this project
-            </ProjectCard>
-            <ProjectCard
-              heading="Project name"
-              img="/aen-notes-1.jpg"
-              url="/"
-              tags={['React', 'Node.js', 'Express']}
-            >
-              This is a summary of this projectThis is a summary of this
-              projectThis is a summary of this projectThis is a summary of this
-              projectThis is a summary of this projectThis is a summary of this
-              projectThis is a summary of this projectThis is a summary of this
-              projectThis is a summary of this projectThis is a summary of this
-              projectThis is a summary of this projectThis is a summary of this
-              projectThis is a summary of this projectThis is a summary of this
-              projectThis is a summary of this projectThis is a summary of this
-              projectThis is a summary of this projectThis is a summary of this
-              project
-            </ProjectCard>
+            {projects.map(project => (
+              <ProjectCard
+                key={project.slug}
+                heading={project.name}
+                img={`/${project.imgs[0]}`}
+                url={`/projects/${project.slug}`}
+                tags={project.tags}
+              >
+                {project.description}
+              </ProjectCard>
+            ))}
           </ProjectCardsGrid>
         </TitledContent>
+      </LayoutContainer>
 
+      <LayoutContainer>
         <TitledContent id="about" heading="About me">
           <p>
             Full-stack software engineer with six years of experience living in
@@ -50,8 +49,22 @@ export default function Home() {
             experiences, accessibility, and sound engineering practices.
           </p>
         </TitledContent>
-      </main>
-      <Footer>Footer content goes here</Footer>
+      </LayoutContainer>
     </>
   )
+}
+
+Home.propTypes = {
+  projects: PropTypes.arrayOf(
+    PropTypes.shape({
+      slug: PropTypes.string,
+      title: PropTypes.string,
+      tags: PropTypes.arrayOf(PropTypes.string),
+      imgs: PropTypes.arrayOf(PropTypes.string),
+    }),
+  ),
+}
+
+Home.defaultProps = {
+  projects: [],
 }

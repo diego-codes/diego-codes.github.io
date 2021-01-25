@@ -1,23 +1,23 @@
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
-
-const Container = styled.footer`
-  padding: 1.5rem;
-`
+import styled, { useTheme } from 'styled-components'
+import LayoutContainer from './LayoutContainer'
 
 const Content = styled.div`
   margin-block-end: 1em;
 `
-const Copyright = styled.p``
+const Copyright = styled.small``
 
 export default function Footer({ children }) {
+  const theme = useTheme()
   return (
-    <Container>
+    <LayoutContainer backgroundColor={theme.bgDark01}>
       {children && <Content>{children}</Content>}
-      <Copyright>
-        Handcrafted by Diego Hernandez, {new Date().getFullYear()}
-      </Copyright>
-    </Container>
+      <p>
+        <Copyright>
+          Handcrafted by Diego Hernandez, {new Date().getFullYear()}
+        </Copyright>
+      </p>
+    </LayoutContainer>
   )
 }
 
