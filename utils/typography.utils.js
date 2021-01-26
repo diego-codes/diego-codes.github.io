@@ -20,12 +20,12 @@ export const DefaultScale = {
 
 export const ResponsiveScales = {
   [Breakpoint.md]: {
-    [Size.h1]: '1.802rem',
-    [Size.h2]: '1.602rem',
-    [Size.h3]: '1.424rem',
-    [Size.h4]: '1.266rem',
-    [Size.h5]: '1.125rem',
-    [Size.small]: '0.889rem',
+    [Size.h1]: '2.488rem',
+    [Size.h2]: '2.074rem',
+    [Size.h3]: '1.728rem',
+    [Size.h4]: '1.44rem',
+    [Size.h5]: '1.2rem',
+    [Size.small]: '0.833rem',
   },
 }
 

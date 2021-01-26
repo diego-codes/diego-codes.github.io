@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { Breakpoint, mediaQuery } from '../utils/responsive.utils'
 import StyledLink from './StyledLink'
 import LayoutContainer from './LayoutContainer'
+import { getResponseTypeStyle, Size } from '../utils/typography.utils'
 
 const Container = styled.header`
   ${mediaQuery(Breakpoint.md)} {
@@ -18,8 +19,8 @@ const Hello = styled.h1`
   margin-block-end: 0.2em;
 `
 const Tagline = styled.p`
-  font-size: 1.3em;
   margin-block-end: 1em;
+  ${getResponseTypeStyle(Size.h3)}
 `
 
 const Navigation = styled.ul`

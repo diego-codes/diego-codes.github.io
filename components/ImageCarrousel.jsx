@@ -1,6 +1,28 @@
 import PropTypes from 'prop-types'
-import { useRef, useState } from 'react'
+import Image from 'next/image'
+import { useEffect, useRef, useState } from 'react'
 import styled from 'styled-components'
+import { Breakpoint, mediaQuery } from '../utils/responsive.utils'
+
+const ImagesContainer = styled.div`
+  padding-block-start: 1em;
+  padding-block-end: 1em;
+  background-color: ${props => props.backgroundColor || props.theme.bg02};
+  margin-block-end: 0.7em;
+`
+const ImagesPosition = styled.div`
+  position: relative;
+  block-size: 17rem;
+
+  ${mediaQuery(Breakpoint.md)} {
+    block-size: 25rem;
+  }
+`
+
+const ImageWrapper = styled.div`
+  opacity: ${props => (props.show ? 1 : 0)};
+  transition: opacity ${props => props.transitionDuration * 0.1}ms;
+`
 
 const Indicator = styled.button`
   background-color: ${props =>
@@ -24,49 +46,84 @@ const Indicator = styled.button`
   }
 `
 
-export default function ImageCarrousel({ images }) {
+const IndicatorsContainer = styled.div`
+  text-align: center;
+`
+
+const transitionDuration = 3000
+
+export default function ImageCarrousel({ images, backgroundColor }) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
   const timerRef = useRef(null)
 
   const startTimer = () => {
-    timerRef.current = setInterval(() => {
-      setCurrentImageIndex(val => (val + 1) % images.length)
-    }, 2000)
+    if (images.length > 1) {
+      timerRef.current = setInterval(() => {
+        setCurrentImageIndex(val => (val + 1) % images.length)
+      }, transitionDuration)
+    }
   }
 
-  const clearTimer = () => clearInterval(timerRef.current)
+  const clearTimer = () => {
+    clearInterval(timerRef.current)
+    timerRef.current = null
+  }
 
-  useState(() => {
+  useEffect(() => {
     startTimer()
-    return clearTimer
+    return () => clearTimer()
   }, [])
 
   return (
-    <div>
-      {images[currentImageIndex]}
-      <div>
-        {images.map((image, imageIndex) => (
-          <Indicator
-            key={image}
-            type="button"
-            tabIndex={-1}
-            highlight={imageIndex === currentImageIndex}
-            onClick={() => {
-              setCurrentImageIndex(imageIndex)
-              clearTimer()
-              startTimer()
-            }}
-          />
-        ))}
-      </div>
-    </div>
+    <>
+      <ImagesContainer
+        backgroundColor={backgroundColor}
+        onMouseEnter={clearTimer}
+        onMouseLeave={startTimer}
+      >
+        <ImagesPosition>
+          {images.map((image, imageIndex) => (
+            <ImageWrapper
+              key={image}
+              show={imageIndex === currentImageIndex}
+              transitionDuration={transitionDuration}
+            >
+              <Image
+                src={`/projects/${image}`}
+                layout="fill"
+                objectFit="contain"
+              />
+            </ImageWrapper>
+          ))}
+        </ImagesPosition>
+      </ImagesContainer>
+      {images.length > 1 && (
+        <IndicatorsContainer>
+          {images.map((image, imageIndex) => (
+            <Indicator
+              key={image}
+              type="button"
+              tabIndex={-1}
+              highlight={imageIndex === currentImageIndex}
+              onClick={() => {
+                setCurrentImageIndex(imageIndex)
+                clearTimer()
+                startTimer()
+              }}
+            />
+          ))}
+        </IndicatorsContainer>
+      )}
+    </>
   )
 }
 
 ImageCarrousel.propTypes = {
   images: PropTypes.arrayOf(PropTypes.string),
+  backgroundColor: PropTypes.string,
 }
 
 ImageCarrousel.defaultProps = {
   images: [],
+  backgroundColor: undefined,
 }

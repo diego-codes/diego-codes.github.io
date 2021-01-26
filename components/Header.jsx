@@ -9,6 +9,8 @@ const StickyContainer = styled.div`
   inset-block-start: 0;
   inset-inline-start: 0;
   inline-size: 100%;
+  z-index: 1;
+  /* box-shadow: 0 0.5em 2em rgba(0, 0, 0, 0.2); */
 `
 
 const Container = styled.div`

@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import Link from 'next/link'
+import Image from 'next/image'
 import TagsList from './TagsList'
 import { DefaultScale } from '../utils/typography.utils'
 import StyledLink, { hoverStyles } from './StyledLink'
@@ -38,13 +39,14 @@ const Container = styled.a`
 `
 const Header = styled.header``
 
-const Image = styled.div`
+const ImageContainer = styled.div`
   block-size: 12.5em;
   inline-size: 100%;
   margin-block-end: 1.3em;
-  background: url('${({ url }) => url}') top center no-repeat;
-  background-size: cover;
+  background-color: ${props => props.color || props.theme.bg03};
+  position: relative;
 `
+
 const Heading = styled.h2`
   margin-block-start: 0;
   margin-block-end: 0.4em;
@@ -63,12 +65,27 @@ const Footer = styled.footer`
   padding: ${padding};
 `
 
-export default function TitledContent({ img, heading, children, tags, url }) {
+export default function TitledContent({
+  img,
+  heading,
+  children,
+  tags,
+  url,
+  color,
+}) {
   return (
     <Link href={url} passHref>
       <Container>
         <Header>
-          <Image url={img} />
+          <ImageContainer color={color}>
+            {img && (
+              <Image
+                src={`/projects/${img}`}
+                layout="fill"
+                objectFit="contain"
+              />
+            )}
+          </ImageContainer>
           <Heading>{heading}</Heading>
         </Header>
         <Summary>
@@ -88,6 +105,7 @@ TitledContent.propTypes = {
   img: PropTypes.string,
   children: PropTypes.node,
   tags: PropTypes.arrayOf(PropTypes.string),
+  color: PropTypes.string,
   url: PropTypes.string,
 }
 
@@ -96,5 +114,6 @@ TitledContent.defaultProps = {
   img: undefined,
   children: undefined,
   tags: [],
+  color: undefined,
   url: undefined,
 }

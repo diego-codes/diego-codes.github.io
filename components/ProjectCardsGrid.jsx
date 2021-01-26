@@ -52,9 +52,10 @@ export default function ProjectCardsGrid({ projects }) {
             <ProjectCard
               key={project.slug}
               heading={project.name}
-              img={`/${project.imgs?.[0]}`}
+              img={project.imgs?.[0]}
               url={`/projects/${project.slug}`}
               tags={project.tags}
+              color={project.color}
             >
               {project.description}
             </ProjectCard>
@@ -72,6 +73,7 @@ ProjectCardsGrid.propTypes = {
       title: PropTypes.string,
       tags: PropTypes.arrayOf(PropTypes.string),
       imgs: PropTypes.arrayOf(PropTypes.string),
+      color: PropTypes.string,
     }),
   ),
 }

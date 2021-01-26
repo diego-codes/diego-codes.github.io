@@ -17,38 +17,52 @@ const Container = styled(LayoutContainer)`
     ${linkStyles}
   }
 `
-export default function Project({ name, description, tags, next, children }) {
+export default function Project({
+  imgs,
+  name,
+  description,
+  tags,
+  next,
+  color,
+  children,
+}) {
   return (
-    <Container>
-      <ImageCarrousel images={['im', 'ma', 'ag', 'ge']} />
-      <h1>{name}</h1>
-      <TagsList tags={tags} />
-      <div>
-        <Description>{description}</Description>
-        {/* eslint-disable-next-line react/no-danger */}
-        <div dangerouslySetInnerHTML={{ __html: children }} />
-        {next && (
-          <Link href={next} passHref>
-            <StyledLink>Next project</StyledLink>
-          </Link>
-        )}
-      </div>
-    </Container>
+    <>
+      <ImageCarrousel images={imgs} backgroundColor={color} />
+      <Container>
+        <h1>{name}</h1>
+        <TagsList tags={tags} />
+        <div>
+          <Description>{description}</Description>
+          {/* eslint-disable-next-line react/no-danger */}
+          <div dangerouslySetInnerHTML={{ __html: children }} />
+          {next && (
+            <Link href={next} passHref>
+              <StyledLink>Next project</StyledLink>
+            </Link>
+          )}
+        </div>
+      </Container>
+    </>
   )
 }
 
 Project.propTypes = {
+  imgs: PropTypes.arrayOf(PropTypes.string),
   name: PropTypes.string,
   description: PropTypes.string,
   tags: PropTypes.arrayOf(PropTypes.string),
   next: PropTypes.string,
+  color: PropTypes.string,
   children: PropTypes.string,
 }
 
 Project.defaultProps = {
+  imgs: [],
   name: '',
   description: '',
   tags: [],
   next: undefined,
+  color: undefined,
   children: '',
 }
