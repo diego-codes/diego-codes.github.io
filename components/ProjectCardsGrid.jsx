@@ -1,10 +1,12 @@
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { useState } from 'react'
+import dynamic from 'next/dynamic'
 import LayoutContainer from './LayoutContainer'
 import TitledContent from './TitledContent'
 import ProjectCard from './ProjectCard'
-import ProjectFilterList from './ProjectFilterList'
+
+const ProjectFilterList = dynamic(() => import('./ProjectFilterList'))
 
 const Grid = styled.div`
   display: grid;
