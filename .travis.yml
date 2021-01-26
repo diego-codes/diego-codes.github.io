@@ -3,7 +3,9 @@ cache: npm
 
 script: npm run lint
 
-before_deploy: npm run build
+before_deploy:
+  - npm run build
+  - touch out/.nojekyll
 
 deploy:
   provider: pages
