@@ -1,15 +1,23 @@
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import { DefaultScale } from '../utils/typography.utils'
 import LayoutContainer from './LayoutContainer'
+import { styles as linkStyles } from './StyledLink'
 import TagsList from './TagsList'
 
 const Description = styled.p`
   font-style: italic;
-  font-size: 1.4em;
+  font-size: ${DefaultScale.h4};
+`
+
+const Container = styled(LayoutContainer)`
+  a:any-link {
+    ${linkStyles}
+  }
 `
 export default function Project({ name, description, tags, children }) {
   return (
-    <LayoutContainer>
+    <Container>
       <h1>{name}</h1>
       <TagsList tags={tags} />
       <div>
@@ -17,7 +25,7 @@ export default function Project({ name, description, tags, children }) {
         {/* eslint-disable-next-line react/no-danger */}
         <div dangerouslySetInnerHTML={{ __html: children }} />
       </div>
-    </LayoutContainer>
+    </Container>
   )
 }
 

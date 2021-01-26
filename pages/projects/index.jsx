@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types'
-import Hero from '../components/Hero'
-import ProjectCardsGrid from '../components/ProjectCardsGrid'
-import { getAllProjects } from '../lib/projects'
+import ProjectCardsGrid from '../../components/ProjectCardsGrid'
+import { getAllProjects } from '../../lib/projects'
 
 export async function getStaticProps() {
   const projects = getAllProjects()
@@ -16,16 +15,11 @@ export async function getStaticProps() {
   }
 }
 
-export default function Home({ projects }) {
-  return (
-    <>
-      <Hero />
-      <ProjectCardsGrid projects={projects} />
-    </>
-  )
+export default function ProjectsPage({ projects }) {
+  return <ProjectCardsGrid projects={projects} />
 }
 
-Home.propTypes = {
+ProjectsPage.propTypes = {
   projects: PropTypes.arrayOf(
     PropTypes.shape({
       slug: PropTypes.string,
@@ -36,6 +30,6 @@ Home.propTypes = {
   ),
 }
 
-Home.defaultProps = {
+ProjectsPage.defaultProps = {
   projects: [],
 }

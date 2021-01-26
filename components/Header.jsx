@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import PropTypes from 'prop-types'
 import { useEffect, useRef } from 'react'
 import styled, { useTheme } from 'styled-components'
@@ -13,6 +14,7 @@ const StickyContainer = styled.div`
 const Container = styled.div`
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
 `
 
 const Title = styled.h1`
@@ -20,6 +22,10 @@ const Title = styled.h1`
   font-weight: 400;
   flex: 1 1 auto;
   margin: 0;
+`
+
+const TitleLink = styled.a`
+  text-decoration: none;
 `
 
 export default function Header({ children }) {
@@ -48,9 +54,13 @@ export default function Header({ children }) {
   return (
     <div ref={placeholderRef}>
       <StickyContainer>
-        <LayoutContainer backgroundColor={theme.bgDark01}>
+        <LayoutContainer backgroundColor={theme.bg03}>
           <Container>
-            <Title>Diego Hernandez</Title>
+            <Title>
+              <Link href="/" passHref>
+                <TitleLink>Diego Hernandez</TitleLink>
+              </Link>
+            </Title>
             {children && <div>{children}</div>}
           </Container>
         </LayoutContainer>

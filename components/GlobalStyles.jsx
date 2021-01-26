@@ -16,9 +16,13 @@ export default createGlobalStyle`
     font-family: 'Fira Sans', 'Helvetica Neue', 'Arial', sans-serif;
     font-weight: 300;
     line-height: 1.75;
-
-    background-color: ${props => props.theme.background};
+    
+    background-color: ${props => props.theme.bg03};
     color: ${props => props.theme.text01}
+  }
+  
+  body {
+    background-color: ${props => props.theme.bg01};
   }
 
   body, ol, ul {
@@ -47,9 +51,6 @@ export default createGlobalStyle`
     .map(([breakpoint, sizes]) => getResponseTypeScaleStyles(breakpoint, sizes))
     .join('\n')}
 
-
-
-
   ol, ul {
     list-style: none;
   }
@@ -63,7 +64,13 @@ export default createGlobalStyle`
     color: inherit;
     
     &:focus {
-    outline: 2px solid ${props => props.theme.primary};
+      outline: 2px solid ${props => props.theme.primary};
+    }
   }
+
+  svg {
+    fill: currentColor;
+    max-inline-size: 100%;
+    block-size: auto;
   }
 `

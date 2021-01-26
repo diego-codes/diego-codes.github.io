@@ -10,7 +10,7 @@ const Copyright = styled.small``
 export default function Footer({ children }) {
   const theme = useTheme()
   return (
-    <LayoutContainer backgroundColor={theme.bgDark01}>
+    <LayoutContainer backgroundColor={theme.bg03} padding="0.5rem 1.5rem">
       {children && <Content>{children}</Content>}
       <p>
         <Copyright>

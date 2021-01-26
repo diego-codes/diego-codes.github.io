@@ -1,13 +1,11 @@
 import styled from 'styled-components'
 import Link from 'next/link'
-import { Breakpoint, mediaQuery } from '../utils/responsive.utils'
+import { useRouter } from 'next/router'
 import StyledLink from './StyledLink'
 
 const List = styled.ul`
-  ${mediaQuery(Breakpoint.sm)} {
-    display: flex;
-    gap: 1em;
-  }
+  display: flex;
+  gap: 1em;
 `
 
 const NavLink = styled(StyledLink)`
@@ -32,22 +30,18 @@ const NavLink = styled(StyledLink)`
 `
 
 export default function Navigation() {
+  const router = useRouter()
   return (
     <List>
       <li>
-        <Link href="/" passHref>
-          <NavLink active>Home</NavLink>
-        </Link>
-      </li>
-      <li>
         <Link href="/projects" passHref>
-          <NavLink>My work</NavLink>
+          <NavLink active={router.route.includes('projects')}>Work</NavLink>
         </Link>
       </li>
 
       <li>
-        <Link href="/#about" passHref>
-          <NavLink>About me</NavLink>
+        <Link href="/about" passHref>
+          <NavLink active={router.route.includes('about')}>About</NavLink>
         </Link>
       </li>
     </List>
