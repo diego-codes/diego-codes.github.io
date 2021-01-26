@@ -12,7 +12,7 @@ const Description = styled.p`
   font-size: ${DefaultScale.h4};
 `
 
-const Container = styled(LayoutContainer)`
+const Content = styled.div`
   a:any-link {
     ${linkStyles}
   }
@@ -29,20 +29,20 @@ export default function Project({
   return (
     <>
       <ImageCarrousel images={imgs} backgroundColor={color} />
-      <Container>
+      <LayoutContainer>
         <h1>{name}</h1>
         <TagsList tags={tags} />
         <div>
           <Description>{description}</Description>
           {/* eslint-disable-next-line react/no-danger */}
-          <div dangerouslySetInnerHTML={{ __html: children }} />
+          <Content dangerouslySetInnerHTML={{ __html: children }} />
           {next && (
             <Link href={next} passHref>
               <StyledLink>Next project</StyledLink>
             </Link>
           )}
         </div>
-      </Container>
+      </LayoutContainer>
     </>
   )
 }

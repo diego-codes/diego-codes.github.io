@@ -13,7 +13,7 @@ const Tag = styled.li`
   border: 1px solid ${props => props.theme.primary};
   color: ${props => props.theme.primary};
   display: inline-block;
-  padding: 0.2em 0.4em;
+  padding: 0.15em 0.6em;
   border-radius: 0.2em;
 `
 

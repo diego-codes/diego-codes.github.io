@@ -1,20 +1,32 @@
-import PropTypes from 'prop-types'
 import styled, { useTheme } from 'styled-components'
 import LayoutContainer from './LayoutContainer'
 import pgk from '../package.json'
 import StyledLink from './StyledLink'
+import { getResponseTypeStyle, Size } from '../utils/typography.utils'
 
-const Content = styled.div`
-  margin-block-end: 1em;
+const Container = styled.div`
+  display: flex;
+  flex-wrap: wrap-reverse;
+  column-gap: 1.5em;
+  row-gap: 0.7em;
+  ${getResponseTypeStyle(Size.small)};
 `
-const Copyright = styled.small``
+const Copyright = styled.p`
+  flex: 1;
+  margin: 0;
+`
 
-export default function Footer({ children }) {
+const Contact = styled.p`
+  display: flex;
+  gap: 0.7em;
+  margin: 0;
+`
+
+export default function Footer() {
   const theme = useTheme()
   return (
-    <LayoutContainer backgroundColor={theme.bg03} padding="0.5rem 1.5rem">
-      {children && <Content>{children}</Content>}
-      <p>
+    <LayoutContainer backgroundColor={theme.bg03} padding="1rem 1.5rem">
+      <Container>
         <Copyright>
           <StyledLink
             href={pgk.repository.url}
@@ -23,17 +35,32 @@ export default function Footer({ children }) {
           >
             Handcrafted
           </StyledLink>{' '}
-          by Diego Hernandez, {new Date().getFullYear()}
+          by me, {new Date().getFullYear()}
         </Copyright>
-      </p>
+        <Contact>
+          <StyledLink
+            href="https://www.linkedin.com/in/diegoahernandez/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            LinkedIn
+          </StyledLink>{' '}
+          <StyledLink
+            href="https://github.com/diego-codes/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            GitHub
+          </StyledLink>{' '}
+          <StyledLink
+            href="https://twitter.com/diego_codes"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Twitter
+          </StyledLink>
+        </Contact>
+      </Container>
     </LayoutContainer>
   )
-}
-
-Footer.propTypes = {
-  children: PropTypes.node,
-}
-
-Footer.defaultProps = {
-  children: undefined,
 }
