@@ -8,6 +8,10 @@
     "start": "next start",
     "lint": "eslint \"**/*.js?(x)\""
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/diego-codes/diego-codes.github.io/"
+  },
   "dependencies": {
     "gray-matter": "^4.0.2",
     "next": "10.0.5",

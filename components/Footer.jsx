@@ -1,6 +1,8 @@
 import PropTypes from 'prop-types'
 import styled, { useTheme } from 'styled-components'
 import LayoutContainer from './LayoutContainer'
+import pgk from '../package.json'
+import StyledLink from './StyledLink'
 
 const Content = styled.div`
   margin-block-end: 1em;
@@ -14,7 +16,14 @@ export default function Footer({ children }) {
       {children && <Content>{children}</Content>}
       <p>
         <Copyright>
-          Handcrafted by Diego Hernandez, {new Date().getFullYear()}
+          <StyledLink
+            href={pgk.repository.url}
+            target="_blank"
+            rel="noreferrer"
+          >
+            Handcrafted
+          </StyledLink>{' '}
+          by Diego Hernandez, {new Date().getFullYear()}
         </Copyright>
       </p>
     </LayoutContainer>
