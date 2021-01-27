@@ -8,6 +8,7 @@ import ProjectCard from './ProjectCard'
 import ProjectFilterList from './ProjectFilterList'
 import Button from './Button'
 import { getResponseTypeStyle, Size } from '../utils/typography.utils'
+import { Breakpoint, mediaQuery } from '../utils/responsive.utils'
 
 const Grid = styled.div`
   display: grid;
@@ -22,10 +23,12 @@ const FiltersContainer = styled.div`
 `
 
 const SeeMoreButtonContainer = styled.div`
-  text-align: center;
+  ${mediaQuery(Breakpoint.sm)} {
+    text-align: center;
+  }
 `
 
-const SeeMoreButton = styled(Button, { as: 'a' })`
+const SeeMoreButton = styled(Button)`
   ${getResponseTypeStyle(Size.h5)}
 `
 export default function ProjectCardsGrid({
@@ -80,7 +83,7 @@ export default function ProjectCardsGrid({
             <ProjectCard
               key={project.slug}
               heading={project.name}
-              img={project.imgs?.[0]}
+              img={project.thumbnail}
               url={`/projects/${project.slug}`}
               tags={project.tags}
               color={project.color}
@@ -93,7 +96,7 @@ export default function ProjectCardsGrid({
         {showSeeMoreLink && (
           <SeeMoreButtonContainer>
             <Link href="/projects" passHref>
-              <SeeMoreButton>See more projects</SeeMoreButton>
+              <SeeMoreButton as="a">See more projects</SeeMoreButton>
             </Link>
           </SeeMoreButtonContainer>
         )}
@@ -108,6 +111,7 @@ ProjectCardsGrid.propTypes = {
       slug: PropTypes.string,
       title: PropTypes.string,
       tags: PropTypes.arrayOf(PropTypes.string),
+      thumbnail: PropTypes.string,
       imgs: PropTypes.arrayOf(PropTypes.string),
       color: PropTypes.string,
     }),

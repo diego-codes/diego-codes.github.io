@@ -17,11 +17,6 @@ const List = styled.ul`
   > * {
     margin-block-end: 0.3em;
     margin-inline-end: 1em;
-
-    :last-of-type {
-      margin-block-end: 0;
-      margin-inline-end: 0;
-    }
   }
 `
 

@@ -7,7 +7,10 @@ import { Breakpoint, mediaQuery } from '../utils/responsive.utils'
 const ImagesContainer = styled.div`
   padding-block-start: 1em;
   padding-block-end: 1em;
-  background: ${props => props.backgroundColor || props.theme.bg02};
+  background: ${props =>
+    props.theme[props.backgroundColor] ||
+    props.backgroundColor ||
+    'transparent'};
   margin-block-end: 0.7em;
 `
 const ImagesPosition = styled.div`
@@ -50,7 +53,7 @@ const IndicatorsContainer = styled.div`
   text-align: center;
 `
 
-const transitionDuration = 3000
+const transitionDuration = 5000
 
 export default function ImageCarrousel({ images, backgroundColor }) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
@@ -58,14 +61,15 @@ export default function ImageCarrousel({ images, backgroundColor }) {
 
   const startTimer = () => {
     if (images.length > 1) {
-      timerRef.current = setInterval(() => {
+      timerRef.current = setTimeout(() => {
         setCurrentImageIndex(val => (val + 1) % images.length)
+        startTimer()
       }, transitionDuration)
     }
   }
 
   const clearTimer = () => {
-    clearInterval(timerRef.current)
+    clearTimeout(timerRef.current)
     timerRef.current = null
   }
 
@@ -76,11 +80,7 @@ export default function ImageCarrousel({ images, backgroundColor }) {
 
   return (
     <>
-      <ImagesContainer
-        backgroundColor={backgroundColor}
-        onMouseEnter={clearTimer}
-        onMouseLeave={startTimer}
-      >
+      <ImagesContainer backgroundColor={backgroundColor}>
         <ImagesPosition>
           {images.map((image, imageIndex) => (
             <ImageWrapper
@@ -106,9 +106,8 @@ export default function ImageCarrousel({ images, backgroundColor }) {
               tabIndex={-1}
               highlight={imageIndex === currentImageIndex}
               onClick={() => {
-                setCurrentImageIndex(imageIndex)
                 clearTimer()
-                startTimer()
+                setCurrentImageIndex(imageIndex)
               }}
             />
           ))}

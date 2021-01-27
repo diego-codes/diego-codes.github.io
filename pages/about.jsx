@@ -5,7 +5,7 @@ import TitledContent from '../components/TitledContent'
 
 export default function AboutPage() {
   return (
-    <LayoutContainer>
+    <LayoutContainer narrow>
       <TitledContent heading="Hi there, nice to meet you!">
         <p>
           I&apos;m a full-stack software engineer with six years of experience

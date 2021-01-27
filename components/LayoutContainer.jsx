@@ -9,7 +9,7 @@ const BackgroundContainer = styled.div`
   inline-size: 100%;
 `
 const Container = styled.div`
-  inline-size: 100%;
+  inline-size: ${props => (props.narrow ? '38rem' : '100%')};
   max-inline-size: 65rem;
 `
 
@@ -17,10 +17,11 @@ export default function LayoutContainer({
   children,
   backgroundColor,
   padding,
+  narrow,
 }) {
   return (
     <BackgroundContainer backgroundColor={backgroundColor} padding={padding}>
-      <Container>{children}</Container>
+      <Container narrow={narrow}>{children}</Container>
     </BackgroundContainer>
   )
 }
@@ -29,10 +30,12 @@ LayoutContainer.propTypes = {
   children: PropTypes.node,
   backgroundColor: PropTypes.string,
   padding: PropTypes.string,
+  narrow: PropTypes.bool,
 }
 
 LayoutContainer.defaultProps = {
   children: undefined,
   backgroundColor: 'inherit',
   padding: '1.5rem',
+  narrow: false,
 }
