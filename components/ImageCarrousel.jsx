@@ -72,7 +72,7 @@ export default function ImageCarrousel({ images, backgroundColor }) {
   useEffect(() => {
     startTimer()
     return () => clearTimer()
-  }, [])
+  }, [images])
 
   return (
     <>

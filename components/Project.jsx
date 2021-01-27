@@ -24,6 +24,7 @@ export default function Project({
   tags,
   next,
   color,
+  links,
   children,
 }) {
   return (
@@ -34,6 +35,20 @@ export default function Project({
         <TagsList tags={tags} />
         <div>
           <Description>{description}</Description>
+          {links && (
+            <p>
+              {links.map(link => (
+                <StyledLink
+                  key={link.url}
+                  href={link.url}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  {link.text}
+                </StyledLink>
+              ))}
+            </p>
+          )}
           {/* eslint-disable-next-line react/no-danger */}
           <Content dangerouslySetInnerHTML={{ __html: children }} />
           {next && (
@@ -54,6 +69,12 @@ Project.propTypes = {
   tags: PropTypes.arrayOf(PropTypes.string),
   next: PropTypes.string,
   color: PropTypes.string,
+  links: PropTypes.arrayOf(
+    PropTypes.shape({
+      url: PropTypes.string,
+      text: PropTypes.string,
+    }),
+  ),
   children: PropTypes.string,
 }
 
@@ -64,5 +85,6 @@ Project.defaultProps = {
   tags: [],
   next: undefined,
   color: undefined,
+  links: [],
   children: '',
 }

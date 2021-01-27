@@ -40,6 +40,7 @@ export default function ProjectPage({
   tags,
   next,
   color,
+  links,
   content,
 }) {
   return (
@@ -51,6 +52,7 @@ export default function ProjectPage({
         tags={tags}
         next={next}
         color={color}
+        links={links}
       >
         {content}
       </Project>
@@ -65,6 +67,12 @@ ProjectPage.propTypes = {
   tags: PropTypes.arrayOf(PropTypes.string),
   next: PropTypes.string,
   color: PropTypes.string,
+  links: PropTypes.arrayOf(
+    PropTypes.shape({
+      url: PropTypes.string,
+      text: PropTypes.string,
+    }),
+  ),
   content: PropTypes.string,
 }
 
@@ -75,5 +83,6 @@ ProjectPage.defaultProps = {
   tags: [],
   next: undefined,
   color: undefined,
+  links: [],
   content: '',
 }
