@@ -16,7 +16,7 @@ export async function getStaticProps() {
 }
 
 export default function ProjectsPage({ projects }) {
-  return <ProjectCardsGrid projects={projects} />
+  return <ProjectCardsGrid projects={projects} showFilters />
 }
 
 ProjectsPage.propTypes = {

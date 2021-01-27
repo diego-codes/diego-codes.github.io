@@ -42,13 +42,13 @@ export default function Hero() {
         <Tagline>I code and design to make this world a better place.</Tagline>
         <Navigation>
           <NavigationItem>
-            <Link href="#projects" passHref>
+            <Link href="/projects" passHref>
               <NavigationLink>See my work</NavigationLink>
             </Link>
           </NavigationItem>
 
           <NavigationItem>
-            <Link href="#about" passHref>
+            <Link href="/about" passHref>
               <NavigationLink>Get to know me</NavigationLink>
             </Link>
           </NavigationItem>

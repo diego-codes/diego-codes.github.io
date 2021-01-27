@@ -66,13 +66,13 @@ export default function ProjectFilter({ children, selected, onToggle }) {
 }
 
 ProjectFilter.propTypes = {
-  children: PropTypes.string,
+  children: PropTypes.node,
   selected: PropTypes.bool,
   onToggle: PropTypes.func,
 }
 
 ProjectFilter.defaultProps = {
-  children: '',
+  children: undefined,
   selected: false,
   onToggle: () => {},
 }

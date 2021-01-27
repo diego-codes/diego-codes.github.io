@@ -19,12 +19,12 @@ const ReadMoreButton = styled(StyledLink)`
 `
 
 const Container = styled.a`
-  margin-block-end: 1.5rem;
   color: inherit;
   text-decoration: none;
   background-color: ${props => props.theme.bg02};
   display: flex;
   flex-flow: column;
+  transition: transform 200ms ease-in-out;
 
   &:focus {
     outline: 2px solid ${props => props.theme.primary};
@@ -32,6 +32,10 @@ const Container = styled.a`
 
   &:focus,
   &:hover {
+    transform: scale(1.04);
+    box-shadow: 0 0 1em rgba(0, 0, 0, 0.2);
+    z-index: 1;
+
     ${ReadMoreButton} {
       ${hoverStyles}
     }

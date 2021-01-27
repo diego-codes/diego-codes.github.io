@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { getResponseTypeStyle, Size } from '../utils/typography.utils'
+import Button from './Button'
 import ProjectFilter from './ProjectFilter'
 
 const Container = styled.div`
@@ -21,33 +22,10 @@ const Label = styled.span`
   white-space: nowrap;
 `
 
-const ResetButton = styled.button`
-  font: inherit;
-  font-size: 0.9em;
-  background: linear-gradient(
-      transparent 0%,
-      ${props => props.theme.primary} 0%
-    )
-    no-repeat;
-  background-size: 100% 0;
-  background-position: bottom;
-  transition: background-size 150ms, color 150ms;
-  text-decoration: none;
-
-  color: ${props => props.theme.primary};
-  padding: 0.05em 0.7em;
-  border: 1px solid ${props => props.theme.primary};
-  cursor: pointer;
-
-  &:hover {
-    color: ${props => props.theme.bg01};
-    background-size: 100% 100%;
-  }
-
-  &:focus {
-    outline: 2px solid ${props => props.theme.primary};
-    outline-offset: 1px;
-  }
+const ResetButton = styled(Button)`
+  ${getResponseTypeStyle(Size.small)};
+  padding-block-start: 0.05em;
+  padding-block-end: 0.05em;
 `
 
 const Count = styled.span`

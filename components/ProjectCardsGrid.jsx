@@ -1,22 +1,38 @@
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { useState } from 'react'
+import Link from 'next/link'
 import LayoutContainer from './LayoutContainer'
 import TitledContent from './TitledContent'
 import ProjectCard from './ProjectCard'
 import ProjectFilterList from './ProjectFilterList'
+import Button from './Button'
+import { getResponseTypeStyle, Size } from '../utils/typography.utils'
 
 const Grid = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(20em, 1fr));
   grid-auto-rows: 1fr;
-  gap: 0.5em;
+  gap: 0.7em;
+  margin-block-end: 2em;
 `
 
 const FiltersContainer = styled.div`
   margin-block-end: 1em;
 `
-export default function ProjectCardsGrid({ projects }) {
+
+const SeeMoreButtonContainer = styled.div`
+  text-align: center;
+`
+
+const SeeMoreButton = styled(Button, { as: 'a' })`
+  ${getResponseTypeStyle(Size.h5)}
+`
+export default function ProjectCardsGrid({
+  projects,
+  showFilters,
+  showSeeMoreLink,
+}) {
   const [selectedFilters, setSelectedFitlers] = useState([])
 
   const tagFilters = projects
@@ -49,14 +65,16 @@ export default function ProjectCardsGrid({ projects }) {
   return (
     <LayoutContainer>
       <TitledContent id="projects" heading="Projects">
-        <FiltersContainer>
-          <ProjectFilterList
-            filters={tagFilters}
-            selectedFilters={selectedFilters}
-            onToggle={handleFilterToggle}
-            onReset={() => setSelectedFitlers([])}
-          />
-        </FiltersContainer>
+        {showFilters && (
+          <FiltersContainer>
+            <ProjectFilterList
+              filters={tagFilters}
+              selectedFilters={selectedFilters}
+              onToggle={handleFilterToggle}
+              onReset={() => setSelectedFitlers([])}
+            />
+          </FiltersContainer>
+        )}
         <Grid>
           {filteredProjects.map(project => (
             <ProjectCard
@@ -71,6 +89,14 @@ export default function ProjectCardsGrid({ projects }) {
             </ProjectCard>
           ))}
         </Grid>
+
+        {showSeeMoreLink && (
+          <SeeMoreButtonContainer>
+            <Link href="/projects" passHref>
+              <SeeMoreButton>See more projects</SeeMoreButton>
+            </Link>
+          </SeeMoreButtonContainer>
+        )}
       </TitledContent>
     </LayoutContainer>
   )
@@ -86,8 +112,12 @@ ProjectCardsGrid.propTypes = {
       color: PropTypes.string,
     }),
   ),
+  showFilters: PropTypes.bool,
+  showSeeMoreLink: PropTypes.bool,
 }
 
 ProjectCardsGrid.defaultProps = {
   projects: [],
+  showFilters: false,
+  showSeeMoreLink: false,
 }

@@ -20,7 +20,7 @@ export default function Home({ projects }) {
   return (
     <>
       <Hero />
-      <ProjectCardsGrid projects={projects} />
+      <ProjectCardsGrid projects={projects.slice(0, 6)} showSeeMoreLink />
     </>
   )
 }
