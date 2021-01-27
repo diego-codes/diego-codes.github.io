@@ -1,12 +1,10 @@
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { useState } from 'react'
-import dynamic from 'next/dynamic'
 import LayoutContainer from './LayoutContainer'
 import TitledContent from './TitledContent'
 import ProjectCard from './ProjectCard'
-
-const ProjectFilterList = dynamic(() => import('./ProjectFilterList'))
+import ProjectFilterList from './ProjectFilterList'
 
 const Grid = styled.div`
   display: grid;
@@ -20,7 +18,17 @@ const FiltersContainer = styled.div`
 `
 export default function ProjectCardsGrid({ projects }) {
   const [selectedFilters, setSelectedFitlers] = useState([])
-  const allTags = [...new Set(projects.map(({ tags }) => tags).flat())]
+  const tagFilters = projects
+    .map(({ tags }) => tags)
+    .flat()
+    .reduce(
+      (tagsObj, tag) => ({
+        ...tagsObj,
+
+        [tag]: (tagsObj[tag] || 0) + 1,
+      }),
+      {},
+    )
   const filteredProjects =
     selectedFilters.length > 0
       ? projects.filter(({ tags }) =>
@@ -41,7 +49,7 @@ export default function ProjectCardsGrid({ projects }) {
       <TitledContent id="projects" heading="Projects">
         <FiltersContainer>
           <ProjectFilterList
-            filters={allTags}
+            filters={tagFilters}
             selectedFilters={selectedFilters}
             onToggle={handleFilterToggle}
             onReset={() => setSelectedFitlers([])}

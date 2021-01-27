@@ -63,6 +63,7 @@ const Summary = styled.p`
 
 const Footer = styled.footer`
   padding: ${padding};
+  overflow: hidden;
 `
 
 export default function TitledContent({

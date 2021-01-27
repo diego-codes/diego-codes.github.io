@@ -1,13 +1,12 @@
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { DefaultScale } from '../utils/typography.utils'
+import { getResponseTypeStyle, Size } from '../utils/typography.utils'
 import ProjectFilter from './ProjectFilter'
 
 const Container = styled.div`
   display: flex;
   align-items: baseline;
   gap: 0.9em;
-  font-size: ${DefaultScale.h5};
 `
 const List = styled.ul`
   display: flex;
@@ -51,13 +50,20 @@ const ResetButton = styled.button`
   }
 `
 
+const Count = styled.span`
+  color: ${props => props.theme.text02};
+  ${getResponseTypeStyle(Size.small)};
+`
+
 export default function ProjectFilterList({
   filters,
   selectedFilters,
   onToggle,
   onReset,
 }) {
-  if (filters.length === 0) {
+  const filterEntries = Object.entries(filters)
+
+  if (filterEntries.length === 0) {
     return null
   }
 
@@ -65,16 +71,18 @@ export default function ProjectFilterList({
     <Container>
       <Label>Filter by:</Label>
       <List>
-        {filters.map(filter => (
-          <li key={filter}>
-            <ProjectFilter
-              selected={selectedFilters.includes(filter)}
-              onToggle={onToggle}
-            >
-              {filter}
-            </ProjectFilter>
-          </li>
-        ))}
+        {filterEntries
+          .sort((a, b) => b[1] - a[1])
+          .map(([filter, count]) => (
+            <li key={filter}>
+              <ProjectFilter
+                selected={selectedFilters.includes(filter)}
+                onToggle={onToggle}
+              >
+                {filter} <Count>[{count}]</Count>
+              </ProjectFilter>
+            </li>
+          ))}
         {selectedFilters.length > 0 && (
           <ResetButton onClick={onReset}>Reset</ResetButton>
         )}
@@ -84,14 +92,14 @@ export default function ProjectFilterList({
 }
 
 ProjectFilterList.propTypes = {
-  filters: PropTypes.arrayOf(PropTypes.string),
+  filters: PropTypes.objectOf(PropTypes.number),
   selectedFilters: PropTypes.arrayOf(PropTypes.string),
   onToggle: PropTypes.func,
   onReset: PropTypes.func,
 }
 
 ProjectFilterList.defaultProps = {
-  filters: [],
+  filters: {},
   selectedFilters: [],
   onToggle: () => {},
   onReset: () => {},

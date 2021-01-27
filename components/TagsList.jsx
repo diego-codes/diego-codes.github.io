@@ -5,6 +5,7 @@ import { getResponseTypeStyle, Size } from '../utils/typography.utils'
 const List = styled.ul`
   display: flex;
   list-style: none;
+  flex-wrap: wrap;
   gap: 0.7em;
 `
 
