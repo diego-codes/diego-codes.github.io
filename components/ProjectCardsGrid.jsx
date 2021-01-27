@@ -18,6 +18,7 @@ const FiltersContainer = styled.div`
 `
 export default function ProjectCardsGrid({ projects }) {
   const [selectedFilters, setSelectedFitlers] = useState([])
+
   const tagFilters = projects
     .map(({ tags }) => tags)
     .flat()
@@ -29,6 +30,7 @@ export default function ProjectCardsGrid({ projects }) {
       }),
       {},
     )
+
   const filteredProjects =
     selectedFilters.length > 0
       ? projects.filter(({ tags }) =>

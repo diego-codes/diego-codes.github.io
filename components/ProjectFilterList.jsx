@@ -77,7 +77,7 @@ export default function ProjectFilterList({
             <li key={filter}>
               <ProjectFilter
                 selected={selectedFilters.includes(filter)}
-                onToggle={onToggle}
+                onToggle={() => onToggle(filter)}
               >
                 {filter} <Count>[{count}]</Count>
               </ProjectFilter>

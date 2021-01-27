@@ -44,7 +44,7 @@ export default function ProjectFilter({ children, selected, onToggle }) {
         type="checkbox"
         id={children}
         checked={selected}
-        onChange={({ target }) => onToggle(children, target.value)}
+        onChange={onToggle}
       />
       <label htmlFor={children}>
         <CheckboxDisplay selected={selected}>
