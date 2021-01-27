@@ -25,7 +25,15 @@ const Tagline = styled.p`
 
 const Navigation = styled.ul`
   display: flex;
-  gap: 1.5em;
+  > * {
+    margin-block-end: 1.5em;
+    margin-inline-end: 1.5em;
+
+    :last-of-type {
+      margin-block-end: 0;
+      margin-inline-end: 0;
+    }
+  }
 `
 
 const NavigationItem = styled.li``

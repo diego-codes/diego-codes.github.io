@@ -8,9 +8,17 @@ const Container = styled.div`
   display: flex;
   flex-wrap: wrap-reverse;
   align-items: flex-end;
-  column-gap: 1.5em;
-  row-gap: 0.9em;
   ${getResponseTypeStyle(Size.small)};
+
+  > * {
+    margin-block-end: 0.9em;
+    margin-inline-end: 1.5em;
+
+    :last-of-type {
+      margin-block-end: 0;
+      margin-inline-end: 0;
+    }
+  }
 `
 const Copyright = styled.p`
   flex: 1;
@@ -20,8 +28,18 @@ const Copyright = styled.p`
 
 const Contact = styled.p`
   display: flex;
-  gap: 0.7em;
+  align-items: flex-start;
   margin: 0;
+
+  > * {
+    margin-block-end: 0.7em;
+    margin-inline-end: 0.7em;
+
+    :last-of-type {
+      margin-block-end: 0;
+      margin-inline-end: 0;
+    }
+  }
 `
 
 export default function Footer() {

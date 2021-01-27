@@ -6,7 +6,6 @@ const List = styled.ul`
   display: flex;
   list-style: none;
   flex-wrap: wrap;
-  gap: 0.7em;
 `
 
 const Tag = styled.li`
@@ -16,6 +15,8 @@ const Tag = styled.li`
   display: inline-block;
   padding: 0.15em 0.6em;
   border-radius: 0.2em;
+  margin-block-end: 0.7em;
+  margin-inline-end: 0.7em;
 `
 
 export default function TagsList({ tags }) {

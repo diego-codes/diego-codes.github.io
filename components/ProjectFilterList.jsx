@@ -7,19 +7,28 @@ import ProjectFilter from './ProjectFilter'
 const Container = styled.div`
   display: flex;
   align-items: baseline;
-  gap: 0.9em;
 `
 const List = styled.ul`
   display: flex;
   list-style: none;
   align-items: center;
-  gap: 0.3em 1em;
   flex-wrap: wrap;
+
+  > * {
+    margin-block-end: 0.3em;
+    margin-inline-end: 1em;
+
+    :last-of-type {
+      margin-block-end: 0;
+      margin-inline-end: 0;
+    }
+  }
 `
 
 const Label = styled.span`
   font-weight: 400;
   white-space: nowrap;
+  margin-inline-end: 0.9em;
 `
 
 const ResetButton = styled(Button)`

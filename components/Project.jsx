@@ -15,7 +15,17 @@ const Description = styled.p`
 const Links = styled.p`
   display: flex;
   flex-wrap: wrap;
-  gap: 1.2em;
+  align-items: flex-start;
+
+  > * {
+    margin-block-end: 1.2em;
+    margin-inline-end: 1.2em;
+
+    :last-of-type {
+      margin-block-end: 0;
+      margin-inline-end: 0;
+    }
+  }
 `
 
 const Content = styled.div`
@@ -28,9 +38,19 @@ const ProjectNavigationLinks = styled.div`
   padding-block-start: 2em;
   padding-block-end: 1em;
   display: flex;
-  gap: 1em 0.8em;
   justify-content: space-between;
+  align-items: flex-start;
   flex-wrap: wrap;
+
+  > * {
+    margin-block-end: 1em;
+    margin-inline-end: 0.8em;
+
+    :last-of-type {
+      margin-block-end: 0;
+      margin-inline-end: 0;
+    }
+  }
 `
 
 export default function Project({

@@ -5,14 +5,22 @@ import StyledLink from './StyledLink'
 
 const List = styled.ul`
   display: flex;
-  gap: 1em;
+  > * {
+    margin-block-end: 1em;
+    margin-inline-end: 1em;
+
+    :last-of-type {
+      margin-block-end: 0;
+      margin-inline-end: 0;
+    }
+  }
 `
 
 const NavLink = styled(StyledLink)`
   text-decoration: none;
   display: flex;
   align-items: center;
-  gap: 0.2em;
+
   padding: 0 0.3em;
 
   &::before {
@@ -22,6 +30,7 @@ const NavLink = styled(StyledLink)`
     inline-size: 0.375em;
     border-radius: 0.375em;
     background-color: ${props => props.theme.primary};
+    margin-inline-end: 0.2em;
   }
 
   &:hover::before {
