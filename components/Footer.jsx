@@ -7,12 +7,14 @@ import { getResponseTypeStyle, Size } from '../utils/typography.utils'
 const Container = styled.div`
   display: flex;
   flex-wrap: wrap-reverse;
+  align-items: flex-end;
   column-gap: 1.5em;
-  row-gap: 0.7em;
+  row-gap: 0.9em;
   ${getResponseTypeStyle(Size.small)};
 `
 const Copyright = styled.p`
   flex: 1;
+  white-space: nowrap;
   margin: 0;
 `
 

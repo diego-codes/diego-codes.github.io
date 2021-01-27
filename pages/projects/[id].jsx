@@ -33,56 +33,18 @@ export async function getStaticPaths() {
   }
 }
 
-export default function ProjectPage({
-  name,
-  description,
-  imgs,
-  tags,
-  next,
-  color,
-  links,
-  content,
-}) {
+export default function ProjectPage({ content, ...rest }) {
   return (
     <main>
-      <Project
-        name={name}
-        description={description}
-        imgs={imgs}
-        tags={tags}
-        next={next}
-        color={color}
-        links={links}
-      >
-        {content}
-      </Project>
+      <Project {...rest}>{content}</Project>
     </main>
   )
 }
 
 ProjectPage.propTypes = {
-  name: PropTypes.string,
-  description: PropTypes.string,
-  imgs: PropTypes.arrayOf(PropTypes.string),
-  tags: PropTypes.arrayOf(PropTypes.string),
-  next: PropTypes.string,
-  color: PropTypes.string,
-  links: PropTypes.arrayOf(
-    PropTypes.shape({
-      url: PropTypes.string,
-      text: PropTypes.string,
-    }),
-  ),
   content: PropTypes.string,
 }
 
 ProjectPage.defaultProps = {
-  name: '',
-  description: '',
-  imgs: [],
-  tags: [],
-  next: undefined,
-  color: undefined,
-  links: [],
   content: '',
 }

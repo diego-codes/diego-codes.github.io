@@ -17,11 +17,22 @@ const Content = styled.div`
     ${linkStyles}
   }
 `
+
+const ProjectNavigationLinks = styled.div`
+  padding-block-start: 2em;
+  padding-block-end: 1em;
+  display: flex;
+  gap: 1em 0.8em;
+  justify-content: space-between;
+  flex-wrap: wrap;
+`
+
 export default function Project({
   imgs,
   name,
   description,
   tags,
+  previous,
   next,
   color,
   links,
@@ -29,7 +40,9 @@ export default function Project({
 }) {
   return (
     <>
-      <ImageCarrousel images={imgs} backgroundColor={color} />
+      {imgs.length > 0 && (
+        <ImageCarrousel images={imgs} backgroundColor={color} />
+      )}
       <LayoutContainer>
         <h1>{name}</h1>
         <TagsList tags={tags} />
@@ -51,11 +64,20 @@ export default function Project({
           )}
           {/* eslint-disable-next-line react/no-danger */}
           <Content dangerouslySetInnerHTML={{ __html: children }} />
-          {next && (
-            <Link href={next} passHref>
-              <StyledLink>Next project</StyledLink>
-            </Link>
-          )}
+
+          <ProjectNavigationLinks>
+            {previous && (
+              <Link href={previous} passHref>
+                <StyledLink>Previous project</StyledLink>
+              </Link>
+            )}
+
+            {next && (
+              <Link href={next} passHref>
+                <StyledLink>Next project</StyledLink>
+              </Link>
+            )}
+          </ProjectNavigationLinks>
         </div>
       </LayoutContainer>
     </>
@@ -67,6 +89,7 @@ Project.propTypes = {
   name: PropTypes.string,
   description: PropTypes.string,
   tags: PropTypes.arrayOf(PropTypes.string),
+  previous: PropTypes.string,
   next: PropTypes.string,
   color: PropTypes.string,
   links: PropTypes.arrayOf(
@@ -83,6 +106,7 @@ Project.defaultProps = {
   name: '',
   description: '',
   tags: [],
+  previous: undefined,
   next: undefined,
   color: undefined,
   links: [],
