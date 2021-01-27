@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components'
 
 export const hoverStyles = css`
-  background-size: auto 100%;
+  background-size: 100% 100%;
   color: ${props => props.theme.bg01};
 `
 
@@ -11,7 +11,7 @@ export const styles = css`
       ${props => props.theme.primary} 0%
     )
     no-repeat;
-  background-size: auto 2px;
+  background-size: 100% 2px;
   background-position: bottom;
   transition: background-size 150ms, color 150ms;
   text-decoration: none;

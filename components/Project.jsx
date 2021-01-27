@@ -12,6 +12,12 @@ const Description = styled.p`
   font-size: ${DefaultScale.h4};
 `
 
+const Links = styled.p`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2em;
+`
+
 const Content = styled.div`
   a:any-link {
     ${linkStyles}
@@ -49,7 +55,7 @@ export default function Project({
         <div>
           <Description>{description}</Description>
           {links && (
-            <p>
+            <Links>
               {links.map(link => (
                 <StyledLink
                   key={link.url}
@@ -60,7 +66,7 @@ export default function Project({
                   {link.text}
                 </StyledLink>
               ))}
-            </p>
+            </Links>
           )}
           {/* eslint-disable-next-line react/no-danger */}
           <Content dangerouslySetInnerHTML={{ __html: children }} />

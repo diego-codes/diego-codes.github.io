@@ -29,7 +29,7 @@ const ResetButton = styled.button`
       ${props => props.theme.primary} 0%
     )
     no-repeat;
-  background-size: auto 0;
+  background-size: 100% 0;
   background-position: bottom;
   transition: background-size 150ms, color 150ms;
   text-decoration: none;
@@ -41,7 +41,7 @@ const ResetButton = styled.button`
 
   &:hover {
     color: ${props => props.theme.bg01};
-    background-size: auto 100%;
+    background-size: 100% 100%;
   }
 
   &:focus {

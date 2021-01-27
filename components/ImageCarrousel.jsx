@@ -7,7 +7,7 @@ import { Breakpoint, mediaQuery } from '../utils/responsive.utils'
 const ImagesContainer = styled.div`
   padding-block-start: 1em;
   padding-block-end: 1em;
-  background-color: ${props => props.backgroundColor || props.theme.bg02};
+  background: ${props => props.backgroundColor || props.theme.bg02};
   margin-block-end: 0.7em;
 `
 const ImagesPosition = styled.div`
