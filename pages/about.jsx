@@ -13,9 +13,9 @@ export default function AboutPage() {
         />
         <p>
           I&apos;m a full-stack software engineer with six years of experience
-          living in the worlds of engineering and design, relentlessly
-          advocating for valuable user experiences, accessibility, and sound
-          engineering practices. My specialties are{' '}
+          living in Long Beach, California and in the worlds of engineering and
+          design, relentlessly advocating for valuable user experiences,
+          accessibility, and sound engineering practices. My specialties are{' '}
           <Link href="/projects/bigfix-alluvial" passHref>
             <StyledLink>interactive data visualization </StyledLink>
           </Link>{' '}
