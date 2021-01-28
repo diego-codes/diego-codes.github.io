@@ -47,7 +47,7 @@ export default function Hero() {
         <Hello>
           Hello, my name is <Name>Diego Hernandez</Name>
         </Hello>
-        <Tagline>I code and design to make this world a better place.</Tagline>
+        <Tagline>I code and design to make the world a better place.</Tagline>
         <Navigation>
           <NavigationItem>
             <Link href="/projects" passHref>
