@@ -12,10 +12,10 @@ export default function AboutPage() {
           images={[`/me-0${Math.floor(Math.random() * 7) + 1}.jpeg`]}
         />
         <p>
-          I&apos;m a full-stack software engineer with six years of experience
-          living in Long Beach, California and in the worlds of engineering and
-          design, relentlessly advocating for valuable user experiences,
-          accessibility, and sound engineering practices. My specialties are{' '}
+          I&apos;m a full-stack software engineer living in Long Beach,
+          California, with six years of experience in the worlds of engineering
+          and design, relentlessly advocating for valuable user experiences,
+          accessibility, and robust engineering practices. My specialties are{' '}
           <Link href="/projects/bigfix-alluvial" passHref>
             <StyledLink>interactive data visualization </StyledLink>
           </Link>{' '}
