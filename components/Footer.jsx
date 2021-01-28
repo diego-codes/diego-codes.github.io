@@ -3,11 +3,12 @@ import LayoutContainer from './LayoutContainer'
 import pgk from '../package.json'
 import StyledLink from './StyledLink'
 import { getResponseTypeStyle, Size } from '../utils/typography.utils'
+import { Breakpoint, mediaQuery } from '../utils/responsive.utils'
 
 const Container = styled.div`
   display: flex;
   flex-wrap: wrap-reverse;
-  align-items: flex-end;
+  align-items: flex-start;
   ${getResponseTypeStyle(Size.small)};
 
   > * {
@@ -34,6 +35,10 @@ const Contact = styled.p`
   > * {
     margin-block-end: 0.7em;
     margin-inline-end: 0.7em;
+
+    ${mediaQuery(Breakpoint.sm)} {
+      margin-block-end: 0em;
+    }
 
     :last-of-type {
       margin-block-end: 0;
