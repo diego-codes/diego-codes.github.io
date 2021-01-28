@@ -32,6 +32,15 @@ const Content = styled.div`
   a:any-link {
     ${linkStyles}
   }
+
+  ul {
+    padding-inline-start: 3em;
+    list-style: disc;
+  }
+
+  li {
+    margin-block-end: 0.5em;
+  }
 `
 
 const ProjectNavigationLinks = styled.div`

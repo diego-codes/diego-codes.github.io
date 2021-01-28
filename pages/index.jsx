@@ -17,10 +17,15 @@ export async function getStaticProps() {
 }
 
 export default function Home({ projects }) {
+  const featuredProjects = projects.slice(0, 6)
   return (
     <>
       <Hero />
-      <ProjectCardsGrid projects={projects.slice(0, 6)} showSeeMoreLink />
+      <ProjectCardsGrid
+        heading="Featured projects"
+        projects={featuredProjects}
+        seeMoreLink={featuredProjects[featuredProjects.length - 1].slug}
+      />
     </>
   )
 }

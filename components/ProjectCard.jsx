@@ -71,6 +71,7 @@ const Footer = styled.footer`
 `
 
 export default function TitledContent({
+  id,
   img,
   heading,
   children,
@@ -80,7 +81,7 @@ export default function TitledContent({
 }) {
   return (
     <Link href={url} passHref>
-      <Container>
+      <Container id={id}>
         <Header>
           <ImageContainer color={color}>
             {img && (
@@ -106,6 +107,7 @@ export default function TitledContent({
 }
 
 TitledContent.propTypes = {
+  id: PropTypes.string,
   heading: PropTypes.node,
   img: PropTypes.string,
   children: PropTypes.node,
@@ -115,6 +117,7 @@ TitledContent.propTypes = {
 }
 
 TitledContent.defaultProps = {
+  id: undefined,
   heading: undefined,
   img: undefined,
   children: undefined,

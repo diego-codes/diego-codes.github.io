@@ -32,9 +32,10 @@ const SeeMoreButton = styled(Button)`
   ${getResponseTypeStyle(Size.h5)}
 `
 export default function ProjectCardsGrid({
+  heading,
   projects,
   showFilters,
-  showSeeMoreLink,
+  seeMoreLink,
 }) {
   const [selectedFilters, setSelectedFitlers] = useState([])
 
@@ -67,7 +68,7 @@ export default function ProjectCardsGrid({
 
   return (
     <LayoutContainer>
-      <TitledContent id="projects" heading="Projects">
+      <TitledContent id="projects" heading={heading}>
         {showFilters && (
           <FiltersContainer>
             <ProjectFilterList
@@ -82,6 +83,7 @@ export default function ProjectCardsGrid({
           {filteredProjects.map(project => (
             <ProjectCard
               key={project.slug}
+              id={project.slug}
               heading={project.name}
               img={project.thumbnail}
               url={`/projects/${project.slug}`}
@@ -93,9 +95,9 @@ export default function ProjectCardsGrid({
           ))}
         </Grid>
 
-        {showSeeMoreLink && (
+        {seeMoreLink && (
           <SeeMoreButtonContainer>
-            <Link href="/projects" passHref>
+            <Link href={`/projects#${seeMoreLink}`} passHref>
               <SeeMoreButton as="a">See more projects</SeeMoreButton>
             </Link>
           </SeeMoreButtonContainer>
@@ -106,6 +108,7 @@ export default function ProjectCardsGrid({
 }
 
 ProjectCardsGrid.propTypes = {
+  heading: PropTypes.string,
   projects: PropTypes.arrayOf(
     PropTypes.shape({
       slug: PropTypes.string,
@@ -117,11 +120,12 @@ ProjectCardsGrid.propTypes = {
     }),
   ),
   showFilters: PropTypes.bool,
-  showSeeMoreLink: PropTypes.bool,
+  seeMoreLink: PropTypes.string,
 }
 
 ProjectCardsGrid.defaultProps = {
+  heading: 'Projects',
   projects: [],
   showFilters: false,
-  showSeeMoreLink: false,
+  seeMoreLink: undefined,
 }
