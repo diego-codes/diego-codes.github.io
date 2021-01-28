@@ -74,6 +74,7 @@ export default function ImageCarrousel({ images, backgroundColor }) {
   }
 
   useEffect(() => {
+    setCurrentImageIndex(0)
     startTimer()
     return () => clearTimer()
   }, [images])
