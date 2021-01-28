@@ -6,11 +6,9 @@ import StyledLink from './StyledLink'
 const List = styled.ul`
   display: flex;
   > * {
-    margin-block-end: 1em;
     margin-inline-end: 1em;
 
     :last-of-type {
-      margin-block-end: 0;
       margin-inline-end: 0;
     }
   }
