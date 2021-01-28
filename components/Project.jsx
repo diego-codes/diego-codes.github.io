@@ -121,7 +121,10 @@ export default function Project({
     <>
       <LayoutContainer narrow>{topContent}</LayoutContainer>
       {imgs.length > 0 && (
-        <ImageCarrousel images={imgs} backgroundColor={color} />
+        <ImageCarrousel
+          images={imgs.map(img => `/projects/${img}`)}
+          backgroundColor={color}
+        />
       )}
       <LayoutContainer narrow>{bottomContent}</LayoutContainer>
     </>

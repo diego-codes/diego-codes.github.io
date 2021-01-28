@@ -88,11 +88,7 @@ export default function ImageCarrousel({ images, backgroundColor }) {
               show={imageIndex === currentImageIndex}
               transitionDuration={transitionDuration}
             >
-              <Image
-                src={`/projects/${image}`}
-                layout="fill"
-                objectFit="contain"
-              />
+              <Image src={image} layout="fill" objectFit="contain" />
             </ImageWrapper>
           ))}
         </ImagesPosition>
