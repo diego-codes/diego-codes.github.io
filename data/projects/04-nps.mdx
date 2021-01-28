@@ -1,0 +1,36 @@
+---
+name: IBM Net Promoter Score (NPS)
+type: project
+description: I built the user interface for the NPS survey and dashboard for web application across all of IBM.
+color: '#364C63'
+
+tags:
+  - Engineering
+  - Accessibility
+  - React
+  - D3.js
+
+thumbnail: nps-thumb.png
+imgs:
+  - nps-lg.png
+---
+
+## Data Visualization
+
+Our Net Promoter Score dashboard is the home to all of the data collected through our in-app survey widget. Being able to make sense of all of the data we collect is one of the highest responsibilities of our team. This includes interactive data visualizations.
+
+With the help of React and D3, I developed the two main spark line data visualizations you can see in the dashboard currently. The spark line visualizations help offerings and their managers understand the historical net promoter score trends and drill down on a given date using a variety of mouse and keyboard interactions.
+
+The spark line has been well received and continues to provide insights on what has made the biggest impact in an offering’s net promoter score.
+
+## Accessibility
+
+The most public facing piece of our Net Promoter Score service is our in-app survey widget. Offerings throughout IBM have entrusted us to provide an in-app survey that meets their software requirements and this includes accessibility.
+
+Shortly after I started, I had the opportunity to take a deep dive into the accessibility shortcoming of the survey and solve them using accessibility best practices. This included making the markup of the survey more semantic, implementing keyboard focus management features and styles in the widget, and adding descriptive ARIA labels for screen reader users.
+
+## Public API
+
+Some offering teams that got value from really digging into the rich data we collected wanted to make customized reports with their data. And though our dashboard cannot cover every use case for every offering need, it was ideal to liberate our data via a public API that any offering can programmatically get data from.
+
+I worked on the creation of the API endpoints, conceptualization of what features it would support, and API key authentication system. This feature is still a work in progress and we hope to launch the public API soon.
