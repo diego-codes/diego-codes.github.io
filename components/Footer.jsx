@@ -9,14 +9,19 @@ const Container = styled.div`
   display: flex;
   flex-wrap: wrap-reverse;
   align-items: flex-start;
+  row-gap: 0.9em;
+
   ${getResponseTypeStyle(Size.small)};
 
   > * {
-    margin-block-end: 0.9em;
+    margin: 0;
     margin-inline-end: 1.5em;
 
-    :last-of-type {
+    ${mediaQuery(Breakpoint.sm)} {
       margin-block-end: 0;
+    }
+
+    :last-of-type {
       margin-inline-end: 0;
     }
   }
@@ -24,24 +29,13 @@ const Container = styled.div`
 const Copyright = styled.p`
   flex: 1;
   white-space: nowrap;
-  margin: 0;
 `
 
 const Contact = styled.p`
-  display: flex;
-  align-items: flex-start;
-  margin: 0;
-
   > * {
-    margin-block-end: 0.7em;
     margin-inline-end: 0.7em;
 
-    ${mediaQuery(Breakpoint.sm)} {
-      margin-block-end: 0em;
-    }
-
     :last-of-type {
-      margin-block-end: 0;
       margin-inline-end: 0;
     }
   }
