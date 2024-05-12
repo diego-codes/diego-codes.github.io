@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import Link from 'next/link'
 import { useRouter } from 'next/router'
 import StyledLink from './StyledLink'
 
@@ -41,15 +40,15 @@ export default function Navigation() {
   return (
     <List>
       <li>
-        <Link href="/projects" passHref>
-          <NavLink active={router.route.includes('projects')}>Work</NavLink>
-        </Link>
+        <NavLink href="/projects" active={router.route.includes('projects')}>
+          Work
+        </NavLink>
       </li>
 
       <li>
-        <Link href="/about" passHref>
-          <NavLink active={router.route.includes('about')}>About</NavLink>
-        </Link>
+        <NavLink href="/about" active={router.route.includes('about')}>
+          About
+        </NavLink>
       </li>
     </List>
   )

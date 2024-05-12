@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { useState } from 'react'
-import Link from 'next/link'
 import LayoutContainer from './LayoutContainer'
 import TitledContent from './TitledContent'
 import ProjectCard from './ProjectCard'
@@ -97,9 +96,9 @@ export default function ProjectCardsGrid({
 
         {seeMoreLink && (
           <SeeMoreButtonContainer>
-            <Link href={`/projects#${seeMoreLink}`} passHref>
-              <SeeMoreButton as="a">See more projects</SeeMoreButton>
-            </Link>
+            <SeeMoreButton as="a" href={`/projects#${seeMoreLink}`}>
+              See more projects
+            </SeeMoreButton>
           </SeeMoreButtonContainer>
         )}
       </TitledContent>

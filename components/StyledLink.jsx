@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import styled, { css } from 'styled-components'
 
 export const hoverStyles = css`
@@ -21,6 +22,6 @@ export const styles = css`
   }
 `
 
-export default styled.a`
+export default styled(Link)`
   ${styles}
 `

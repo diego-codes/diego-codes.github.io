@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import ImageCarrousel from '../components/ImageCarrousel'
 import LayoutContainer from '../components/LayoutContainer'
 import StyledLink from '../components/StyledLink'
@@ -16,27 +15,29 @@ export default function AboutPage() {
           California, with six years of experience in the worlds of engineering
           and design, relentlessly advocating for simple user experiences,
           accessibility, and robust engineering practices. My specialties are{' '}
-          <Link href="/projects/bigfix-alluvial" passHref>
-            <StyledLink>interactive data visualization </StyledLink>
-          </Link>{' '}
+          <StyledLink href="/projects/bigfix-alluvial">
+            interactive data visualization
+          </StyledLink>{' '}
           and{' '}
-          <Link href="/projects/ui-testing-talk" passHref>
-            <StyledLink>UI software testing</StyledLink>
-          </Link>
+          <StyledLink href="/projects/ui-testing-talk">
+            UI software testing
+          </StyledLink>
           .
         </p>
         <p>
           I work as a software engineer at IBM, where I build{' '}
-          <Link href="/projects/query-builder" passHref>
-            <StyledLink>user-centered tools</StyledLink>
-          </Link>{' '}
+          <StyledLink href="/projects/query-builder">
+            user-centered tools
+          </StyledLink>{' '}
           for cybersecurity professionals. When I am not working, I am probably
           working on my master&apos;s degree, thinking up a new{' '}
-          <Link href="https://github.com/diego-codes/recipes" passHref>
-            <StyledLink target="_blank" rel="noreferrer">
-              food experiment
-            </StyledLink>
-          </Link>
+          <StyledLink
+            target="_blank"
+            rel="noreferrer"
+            href="https://github.com/diego-codes/recipes"
+          >
+            food experiment
+          </StyledLink>
           , or going on long walks with my husband.
         </p>
       </TitledContent>

@@ -89,7 +89,7 @@ export default function ImageCarrousel({ images, backgroundColor }) {
               show={imageIndex === currentImageIndex}
               transitionDuration={transitionDuration}
             >
-              <Image src={image} layout="fill" objectFit="contain" />
+              <Image src={image} fill style={{ objectFit: 'contain' }} />
             </ImageWrapper>
           ))}
         </ImagesPosition>

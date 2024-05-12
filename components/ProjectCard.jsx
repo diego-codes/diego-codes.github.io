@@ -18,7 +18,7 @@ const ReadMoreButton = styled(StyledLink)`
   }
 `
 
-const Container = styled.a`
+const Container = styled(Link)`
   color: inherit;
   text-decoration: none;
   background-color: ${props => props.theme.bg02};
@@ -80,29 +80,27 @@ export default function TitledContent({
   color,
 }) {
   return (
-    <Link href={url} passHref>
-      <Container id={id}>
-        <Header>
-          <ImageContainer color={color}>
-            {img && (
-              <Image
-                src={`/projects/${img}`}
-                layout="fill"
-                objectFit="contain"
-              />
-            )}
-          </ImageContainer>
-          <Heading>{heading}</Heading>
-        </Header>
-        <Summary>
-          {children} <ReadMoreButton as="span">Read more</ReadMoreButton>
-        </Summary>
+    <Container href={url} id={id}>
+      <Header>
+        <ImageContainer color={color}>
+          {img && (
+            <Image
+              src={`/projects/${img}`}
+              fill
+              style={{ objectFit: 'contain' }}
+            />
+          )}
+        </ImageContainer>
+        <Heading>{heading}</Heading>
+      </Header>
+      <Summary>
+        {children} <ReadMoreButton as="span">Read more</ReadMoreButton>
+      </Summary>
 
-        <Footer>
-          <TagsList tags={tags} />
-        </Footer>
-      </Container>
-    </Link>
+      <Footer>
+        <TagsList tags={tags} />
+      </Footer>
+    </Container>
   )
 }
 

@@ -1,5 +1,4 @@
 import styled, { useTheme } from 'styled-components'
-import Link from 'next/link'
 import { Breakpoint, mediaQuery } from '../utils/responsive.utils'
 import StyledLink from './StyledLink'
 import LayoutContainer from './LayoutContainer'
@@ -50,15 +49,11 @@ export default function Hero() {
         <Tagline>I code and design to make the world a better place.</Tagline>
         <Navigation>
           <NavigationItem>
-            <Link href="/projects" passHref>
-              <NavigationLink>See my work</NavigationLink>
-            </Link>
+            <NavigationLink href="/projects">See my work</NavigationLink>
           </NavigationItem>
 
           <NavigationItem>
-            <Link href="/about" passHref>
-              <NavigationLink>Get to know me</NavigationLink>
-            </Link>
+            <NavigationLink href="/about">Get to know me</NavigationLink>
           </NavigationItem>
         </Navigation>
       </Container>

@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { DefaultScale } from '../utils/typography.utils'
@@ -98,21 +97,11 @@ export default function Project({
 
   const bottomContent = (
     <>
-      {' '}
       {/* eslint-disable-next-line react/no-danger */}
       <Content dangerouslySetInnerHTML={{ __html: children }} />
       <ProjectNavigationLinks>
-        {previous && (
-          <Link href={previous} passHref>
-            <StyledLink>Previous project</StyledLink>
-          </Link>
-        )}
-
-        {next && (
-          <Link href={next} passHref>
-            <StyledLink>Next project</StyledLink>
-          </Link>
-        )}
+        {previous && <StyledLink href={previous}>Previous project</StyledLink>}
+        {next && <StyledLink href={next}>Next project</StyledLink>}
       </ProjectNavigationLinks>
     </>
   )
