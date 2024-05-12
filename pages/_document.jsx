@@ -32,7 +32,6 @@ export default class MyDocument extends Document {
     return (
       <Html>
         <Head>
-          <title>Diego Hernandez, Engineering &amp; UX portfolio</title>
           <meta
             name="description"
             content="I'm a full-stack software engineer living in the worlds of engineering and design, advocating for valuable and accessible user experiences."
