@@ -16,7 +16,7 @@ export async function getStaticProps() {
   }
 }
 
-export default function Home({ projects }) {
+export default function Home({ projects = [] }) {
   const featuredProjects = projects.slice(0, 6)
   return (
     <>
@@ -39,8 +39,4 @@ Home.propTypes = {
       imgs: PropTypes.arrayOf(PropTypes.string),
     }),
   ),
-}
-
-Home.defaultProps = {
-  projects: [],
 }

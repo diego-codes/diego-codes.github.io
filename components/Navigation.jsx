@@ -40,13 +40,19 @@ export default function Navigation() {
   return (
     <List>
       <li>
-        <NavLink href="/projects" active={router.route.includes('projects')}>
+        <NavLink
+          href="/projects"
+          active={router.route.includes('projects') ? 'true' : undefined}
+        >
           Work
         </NavLink>
       </li>
 
       <li>
-        <NavLink href="/about" active={router.route.includes('about')}>
+        <NavLink
+          href="/about"
+          active={router.route.includes('about') ? 'true' : undefined}
+        >
           About
         </NavLink>
       </li>

@@ -57,9 +57,7 @@ export default function Header({ children }) {
         <LayoutContainer backgroundColor={theme.bg03} padding="1.2rem 1.5rem">
           <Container>
             <Title>
-              <TitleLink href="/" passHref>
-                Diego Hernandez
-              </TitleLink>
+              <TitleLink href="/">Diego Hernandez</TitleLink>
             </Title>
             {children && <div>{children}</div>}
           </Container>
@@ -71,8 +69,4 @@ export default function Header({ children }) {
 
 Header.propTypes = {
   children: PropTypes.node,
-}
-
-Header.defaultProps = {
-  children: undefined,
 }

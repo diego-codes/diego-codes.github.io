@@ -38,10 +38,10 @@ const Count = styled.span`
 `
 
 export default function ProjectFilterList({
-  filters,
-  selectedFilters,
-  onToggle,
-  onReset,
+  filters = {},
+  selectedFilters = [],
+  onToggle = () => {},
+  onReset = () => {},
 }) {
   const filterEntries = Object.entries(filters)
 
@@ -78,11 +78,4 @@ ProjectFilterList.propTypes = {
   selectedFilters: PropTypes.arrayOf(PropTypes.string),
   onToggle: PropTypes.func,
   onReset: PropTypes.func,
-}
-
-ProjectFilterList.defaultProps = {
-  filters: {},
-  selectedFilters: [],
-  onToggle: () => {},
-  onReset: () => {},
 }

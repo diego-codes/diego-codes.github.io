@@ -11,5 +11,3 @@ export default function AboutPage() {
     </LayoutContainer>
   )
 }
-
-AboutPage.defaultProps = {}

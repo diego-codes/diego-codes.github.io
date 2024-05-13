@@ -37,7 +37,11 @@ const Input = styled.input`
     }
   }
 `
-export default function ProjectFilter({ children, selected, onToggle }) {
+export default function ProjectFilter({
+  children,
+  selected = false,
+  onToggle = () => {},
+}) {
   return (
     <Container>
       <Input
@@ -69,10 +73,4 @@ ProjectFilter.propTypes = {
   children: PropTypes.node,
   selected: PropTypes.bool,
   onToggle: PropTypes.func,
-}
-
-ProjectFilter.defaultProps = {
-  children: undefined,
-  selected: false,
-  onToggle: () => {},
 }

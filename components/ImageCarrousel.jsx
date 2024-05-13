@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import Image from 'next/image'
+import Image from 'next/legacy/image'
 import { useEffect, useRef, useState } from 'react'
 import styled from 'styled-components'
 import { Breakpoint, mediaQuery } from '../utils/responsive.utils'
@@ -8,8 +8,8 @@ const ImagesContainer = styled.div`
   padding-block-start: 1em;
   padding-block-end: 1em;
   background: ${props =>
-    props.theme[props.backgroundColor] ||
-    props.backgroundColor ||
+    props.theme[props.$backgroundColor] ||
+    props.$backgroundColor ||
     'transparent'};
   margin-block-end: 0.7em;
 `
@@ -23,14 +23,14 @@ const ImagesPosition = styled.div`
 `
 
 const ImageWrapper = styled.div`
-  opacity: ${props => (props.show ? 1 : 0)};
-  transition: opacity ${props => props.transitionDuration * 0.1}ms;
+  opacity: ${props => (props.$show ? 1 : 0)};
+  transition: opacity ${props => props.$transitionDuration * 0.1}ms;
 `
 
 const Indicator = styled.button`
   background-color: ${props =>
-    props.highlight ? props.theme.primary : props.theme.text01};
-  opacity: ${props => (props.highlight ? 1 : 0.4)};
+    props.$highlight ? props.theme.primary : props.theme.text01};
+  opacity: ${props => (props.$highlight ? 1 : 0.4)};
   block-size: 0.6em;
   inline-size: 2.5em;
   color: transparent;
@@ -55,7 +55,7 @@ const IndicatorsContainer = styled.div`
 
 const transitionDuration = 5000
 
-export default function ImageCarrousel({ images, backgroundColor }) {
+export default function ImageCarrousel({ images = [], backgroundColor }) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
   const timerRef = useRef(null)
 
@@ -81,15 +81,15 @@ export default function ImageCarrousel({ images, backgroundColor }) {
 
   return (
     <>
-      <ImagesContainer backgroundColor={backgroundColor}>
+      <ImagesContainer $backgroundColor={backgroundColor}>
         <ImagesPosition>
           {images.map((image, imageIndex) => (
             <ImageWrapper
               key={image}
-              show={imageIndex === currentImageIndex}
-              transitionDuration={transitionDuration}
+              $show={imageIndex === currentImageIndex}
+              $transitionDuration={transitionDuration}
             >
-              <Image src={image} fill style={{ objectFit: 'contain' }} />
+              <Image src={image} layout="fill" objectFit="contain" />
             </ImageWrapper>
           ))}
         </ImagesPosition>
@@ -101,7 +101,7 @@ export default function ImageCarrousel({ images, backgroundColor }) {
               key={image}
               type="button"
               tabIndex={-1}
-              highlight={imageIndex === currentImageIndex}
+              $highlight={imageIndex === currentImageIndex}
               onClick={() => {
                 clearTimer()
                 setCurrentImageIndex(imageIndex)
@@ -117,9 +117,4 @@ export default function ImageCarrousel({ images, backgroundColor }) {
 ImageCarrousel.propTypes = {
   images: PropTypes.arrayOf(PropTypes.string),
   backgroundColor: PropTypes.string,
-}
-
-ImageCarrousel.defaultProps = {
-  images: [],
-  backgroundColor: undefined,
 }

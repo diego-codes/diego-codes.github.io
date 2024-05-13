@@ -44,7 +44,3 @@ export default function AboutPage() {
     </LayoutContainer>
   )
 }
-
-AboutPage.propTypes = {}
-
-AboutPage.defaultProps = {}

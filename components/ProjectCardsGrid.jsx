@@ -31,8 +31,8 @@ const SeeMoreButton = styled(Button)`
   ${getResponseTypeStyle(Size.h5)}
 `
 export default function ProjectCardsGrid({
-  heading,
-  projects,
+  heading = 'Projects',
+  projects = [],
   showFilters,
   seeMoreLink,
 }) {
@@ -120,11 +120,4 @@ ProjectCardsGrid.propTypes = {
   ),
   showFilters: PropTypes.bool,
   seeMoreLink: PropTypes.string,
-}
-
-ProjectCardsGrid.defaultProps = {
-  heading: 'Projects',
-  projects: [],
-  showFilters: false,
-  seeMoreLink: undefined,
 }

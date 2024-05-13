@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import Link from 'next/link'
-import Image from 'next/image'
+import Image from 'next/legacy/image'
 import TagsList from './TagsList'
 import { DefaultScale } from '../utils/typography.utils'
 import StyledLink, { hoverStyles } from './StyledLink'
@@ -75,7 +75,7 @@ export default function TitledContent({
   img,
   heading,
   children,
-  tags,
+  tags = [],
   url,
   color,
 }) {
@@ -84,11 +84,7 @@ export default function TitledContent({
       <Header>
         <ImageContainer color={color}>
           {img && (
-            <Image
-              src={`/projects/${img}`}
-              fill
-              style={{ objectFit: 'contain' }}
-            />
+            <Image src={`/projects/${img}`} layout="fill" objectFit="contain" />
           )}
         </ImageContainer>
         <Heading>{heading}</Heading>
@@ -112,14 +108,4 @@ TitledContent.propTypes = {
   tags: PropTypes.arrayOf(PropTypes.string),
   color: PropTypes.string,
   url: PropTypes.string,
-}
-
-TitledContent.defaultProps = {
-  id: undefined,
-  heading: undefined,
-  img: undefined,
-  children: undefined,
-  tags: [],
-  color: undefined,
-  url: undefined,
 }

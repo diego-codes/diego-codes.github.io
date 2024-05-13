@@ -10,7 +10,12 @@ const Heading = styled.h1`
   margin-block-end: 0.5em;
 `
 
-export default function TitledContent({ heading, id, hierarchy, children }) {
+export default function TitledContent({
+  heading,
+  id,
+  hierarchy = 1,
+  children,
+}) {
   return (
     <Container>
       <Heading as={`h${hierarchy}`} id={id}>
@@ -26,11 +31,4 @@ TitledContent.propTypes = {
   id: PropTypes.string,
   hierarchy: PropTypes.number,
   children: PropTypes.node,
-}
-
-TitledContent.defaultProps = {
-  heading: undefined,
-  id: undefined,
-  hierarchy: 1,
-  children: undefined,
 }

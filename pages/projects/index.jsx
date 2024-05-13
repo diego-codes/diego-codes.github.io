@@ -15,7 +15,7 @@ export async function getStaticProps() {
   }
 }
 
-export default function ProjectsPage({ projects }) {
+export default function ProjectsPage({ projects = [] }) {
   return <ProjectCardsGrid projects={projects} showFilters />
 }
 
@@ -28,8 +28,4 @@ ProjectsPage.propTypes = {
       imgs: PropTypes.arrayOf(PropTypes.string),
     }),
   ),
-}
-
-ProjectsPage.defaultProps = {
-  projects: [],
 }

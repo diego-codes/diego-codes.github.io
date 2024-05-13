@@ -33,7 +33,7 @@ export async function getStaticPaths() {
   }
 }
 
-export default function ProjectPage({ content, ...rest }) {
+export default function ProjectPage({ content = '', ...rest }) {
   return (
     <main>
       <Project {...rest}>{content}</Project>
@@ -43,8 +43,4 @@ export default function ProjectPage({ content, ...rest }) {
 
 ProjectPage.propTypes = {
   content: PropTypes.string,
-}
-
-ProjectPage.defaultProps = {
-  content: '',
 }

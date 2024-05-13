@@ -62,15 +62,15 @@ const ProjectNavigationLinks = styled.div`
 `
 
 export default function Project({
-  imgs,
-  name,
-  description,
-  tags,
+  imgs = [],
+  name = '',
+  description = '',
+  tags = [],
   previous,
   next,
   color,
-  links,
-  children,
+  links = [],
+  children = '',
 }) {
   const topContent = (
     <>
@@ -144,16 +144,4 @@ Project.propTypes = {
     }),
   ),
   children: PropTypes.string,
-}
-
-Project.defaultProps = {
-  imgs: [],
-  name: '',
-  description: '',
-  tags: [],
-  previous: undefined,
-  next: undefined,
-  color: undefined,
-  links: [],
-  children: '',
 }

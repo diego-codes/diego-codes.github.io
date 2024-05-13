@@ -19,7 +19,7 @@ const Tag = styled.li`
   margin-inline-end: 0.7em;
 `
 
-export default function TagsList({ tags }) {
+export default function TagsList({ tags = [] }) {
   if (tags.length === 0) {
     return null
   }
@@ -35,8 +35,4 @@ export default function TagsList({ tags }) {
 
 TagsList.propTypes = {
   tags: PropTypes.arrayOf(PropTypes.string),
-}
-
-TagsList.defaultProps = {
-  tags: [],
 }

@@ -35,7 +35,3 @@ export default function Page({ children }) {
 Page.propTypes = {
   children: PropTypes.node,
 }
-
-Page.defaultProps = {
-  children: undefined,
-}

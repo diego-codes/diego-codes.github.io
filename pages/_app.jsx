@@ -5,7 +5,7 @@ import GlobalStyles from '../components/GlobalStyles'
 import Page from '../components/Page'
 import theme from '../utils/theme.utils'
 
-export default function MyApp({ Component, pageProps }) {
+export default function MyApp({ Component, pageProps = {} }) {
   return (
     <>
       <Head>
@@ -23,5 +23,5 @@ export default function MyApp({ Component, pageProps }) {
 
 MyApp.propTypes = {
   Component: PropTypes.elementType.isRequired,
-  pageProps: PropTypes.objectOf(PropTypes.any).isRequired,
+  pageProps: PropTypes.objectOf(PropTypes.any),
 }
