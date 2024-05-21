@@ -41,7 +41,7 @@ const NavigationLink = styled(StyledLink)``
 export default function Hero() {
   const theme = useTheme()
   return (
-    <LayoutContainer backgroundColor={theme.bg03}>
+    <LayoutContainer backgroundColor={theme.bg03} color={theme.text03}>
       <Container>
         <Hello>
           Hello, my name is <Name>Diego Hernandez</Name>

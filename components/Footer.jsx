@@ -44,7 +44,11 @@ const Contact = styled.p`
 export default function Footer() {
   const theme = useTheme()
   return (
-    <LayoutContainer backgroundColor={theme.bg03} padding="1rem 1.5rem">
+    <LayoutContainer
+      backgroundColor={theme.bg03}
+      color={theme.text03}
+      padding="1rem 1.5rem"
+    >
       <Container>
         <Copyright>
           <StyledLink

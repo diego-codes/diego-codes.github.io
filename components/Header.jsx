@@ -54,7 +54,11 @@ export default function Header({ children }) {
   return (
     <div ref={placeholderRef}>
       <StickyContainer>
-        <LayoutContainer backgroundColor={theme.bg03} padding="1.2rem 1.5rem">
+        <LayoutContainer
+          backgroundColor={theme.bg03}
+          color={theme.text03}
+          padding="1.2rem 1.5rem"
+        >
           <Container>
             <Title>
               <TitleLink href="/">Diego Hernandez</TitleLink>

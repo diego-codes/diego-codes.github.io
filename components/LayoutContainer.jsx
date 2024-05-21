@@ -6,6 +6,7 @@ const BackgroundContainer = styled.div`
   display: flex;
   justify-content: center;
   background-color: ${props => props.$backgroundColor};
+  color: ${props => props.$color};
   inline-size: 100%;
 `
 const Container = styled.div`
@@ -16,11 +17,16 @@ const Container = styled.div`
 export default function LayoutContainer({
   children,
   backgroundColor = 'inherit',
+  color = 'inherit',
   padding = '1.5rem',
   narrow,
 }) {
   return (
-    <BackgroundContainer $backgroundColor={backgroundColor} $padding={padding}>
+    <BackgroundContainer
+      $backgroundColor={backgroundColor}
+      $padding={padding}
+      $color={color}
+    >
       <Container $narrow={narrow}>{children}</Container>
     </BackgroundContainer>
   )
@@ -29,6 +35,7 @@ export default function LayoutContainer({
 LayoutContainer.propTypes = {
   children: PropTypes.node,
   backgroundColor: PropTypes.string,
+  color: PropTypes.string,
   padding: PropTypes.string,
   narrow: PropTypes.bool,
 }

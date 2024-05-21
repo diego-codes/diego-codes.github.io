@@ -19,9 +19,9 @@ const ReadMoreButton = styled(StyledLink)`
 `
 
 const Container = styled(Link)`
-  color: inherit;
   text-decoration: none;
   background-color: ${props => props.theme.bg02};
+  color: ${props => props.theme.text02};
   display: flex;
   flex-flow: column;
   transition: transform 200ms ease-in-out;

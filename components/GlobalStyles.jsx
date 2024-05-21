@@ -16,13 +16,12 @@ export default createGlobalStyle`
     font-family: 'Fira Sans', 'Helvetica Neue', 'Arial', sans-serif;
     font-weight: 300;
     line-height: 1.75;
-    
-    background-color: ${props => props.theme.bg03};
-    color: ${props => props.theme.text01}
+    background-color: ${props => props.theme.bg03}
   }
   
   body {
     background-color: ${props => props.theme.bg01};
+    color: ${props => props.theme.text01};
   }
 
   body, ol, ul {
@@ -60,7 +59,7 @@ export default createGlobalStyle`
     block-size: auto;
   }
 
-  a:any-link  {
+  :any-link  {
     color: inherit;
     
     &:focus {
