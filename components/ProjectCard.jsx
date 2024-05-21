@@ -20,8 +20,8 @@ const ReadMoreButton = styled(StyledLink)`
 
 const Container = styled(Link)`
   text-decoration: none;
-  background-color: var(--theme-bg02);
-  color: var(--theme-text02);
+  background-color: var(--theme-bg-02);
+  color: var(--theme-text-02);
   display: flex;
   flex-flow: column;
   transition: transform 200ms ease-in-out;
