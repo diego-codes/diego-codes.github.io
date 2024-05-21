@@ -1,11 +1,11 @@
 const theme = {
-  bg01: 'hsl(49, 90%, 95%)',
-  text01: 'hsl(250, 10%,10%)',
-  bg02: 'hsl(187, 70%, 72%)',
-  text02: 'hsl(120, 10%, 10%)',
-  bg03: 'hsl(20, 80%, 50%)',
-  text03: 'hsl(200, 100%, 100%)',
-  primary: 'hsl(290, 99%, 18%)',
+  bg01: '#131416',
+  text01: '#F0F6FA',
+  bg02: '#1f2123',
+  text02: '#C1D4E1',
+  bg03: '#25272A',
+  text03: '#C1D4E1',
+  primary: '#65F4AD',
 }
 
 export default theme
