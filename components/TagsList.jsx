@@ -10,8 +10,8 @@ const List = styled.ul`
 
 const Tag = styled.li`
   ${getResponseTypeStyle(Size.small)}
-  border: 1px solid ${props => props.theme.primary};
-  color: ${props => props.theme.primary};
+  border: 1px solid var(--theme-primary);
+  color: var(--theme-primary);
   display: inline-block;
   padding: 0.15em 0.6em;
   border-radius: 0.2em;

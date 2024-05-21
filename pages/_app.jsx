@@ -1,9 +1,7 @@
 import Head from 'next/head'
 import PropTypes from 'prop-types'
-import { ThemeProvider } from 'styled-components'
 import GlobalStyles from '../components/GlobalStyles'
 import Page from '../components/Page'
-import theme from '../utils/theme.utils'
 
 export default function MyApp({ Component, pageProps = {} }) {
   return (
@@ -11,12 +9,10 @@ export default function MyApp({ Component, pageProps = {} }) {
       <Head>
         <title>Diego Hernandez, Engineering &amp; UX portfolio</title>
       </Head>
-      <ThemeProvider theme={theme}>
-        <GlobalStyles />
-        <Page>
-          <Component {...pageProps} />
-        </Page>
-      </ThemeProvider>
+      <GlobalStyles />
+      <Page>
+        <Component {...pageProps} />
+      </Page>
     </>
   )
 }

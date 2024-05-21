@@ -20,14 +20,14 @@ const ReadMoreButton = styled(StyledLink)`
 
 const Container = styled(Link)`
   text-decoration: none;
-  background-color: ${props => props.theme.bg02};
-  color: ${props => props.theme.text02};
+  background-color: var(--theme-bg02);
+  color: var(--theme-text02);
   display: flex;
   flex-flow: column;
   transition: transform 200ms ease-in-out;
 
   &:focus {
-    outline: 2px solid ${props => props.theme.primary};
+    outline: 2px solid var(--theme-primary);
   }
 
   &:focus,
@@ -47,7 +47,7 @@ const ImageContainer = styled.div`
   block-size: 12.5em;
   inline-size: 100%;
   margin-block-end: 1.3em;
-  background: ${props => props.color || props.theme.bg03};
+  background: ${props => props.color || 'var(--theme-bg-03)'};
   position: relative;
 `
 

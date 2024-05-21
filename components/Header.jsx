@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import { useEffect, useRef } from 'react'
-import styled, { useTheme } from 'styled-components'
+import styled from 'styled-components'
 import { debounce } from 'throttle-debounce'
 import LayoutContainer from './LayoutContainer'
 
@@ -29,7 +29,6 @@ const TitleLink = styled.a`
 `
 
 export default function Header({ children }) {
-  const theme = useTheme()
   const placeholderRef = useRef(null)
 
   const setFixedHeaderLayout = () => {
@@ -55,8 +54,8 @@ export default function Header({ children }) {
     <div ref={placeholderRef}>
       <StickyContainer>
         <LayoutContainer
-          backgroundColor={theme.bg03}
-          color={theme.text03}
+          backgroundColor="var(--theme-bg-03)"
+          color="var(--theme-text-03)"
           padding="1.2rem 1.5rem"
         >
           <Container>

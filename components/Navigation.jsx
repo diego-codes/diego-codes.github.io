@@ -26,7 +26,7 @@ const NavLink = styled(StyledLink)`
     block-size: 0.375em;
     inline-size: 0.375em;
     border-radius: 0.375em;
-    background-color: ${props => props.theme.primary};
+    background-color: var(--theme-primary);
     margin-inline-end: 0.2em;
   }
 

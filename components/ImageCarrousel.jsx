@@ -29,7 +29,7 @@ const ImageWrapper = styled.div`
 
 const Indicator = styled.button`
   background-color: ${props =>
-    props.$highlight ? props.theme.primary : props.theme.text01};
+    props.$highlight ? 'var(--theme-primary)' : 'var(--theme-text-01)'};
   opacity: ${props => (props.$highlight ? 1 : 0.4)};
   block-size: 0.6em;
   inline-size: 2.5em;
@@ -40,11 +40,11 @@ const Indicator = styled.button`
 
   &:hover {
     opacity: 1;
-    background-color: ${props => props.theme.text01};
+    background-color: var(--theme-text-01);
   }
 
   &:focus {
-    outline: 2px solid ${props => props.theme.primary};
+    outline: 2px solid var(--theme-primary);
     outline-offset: 1px;
   }
 `

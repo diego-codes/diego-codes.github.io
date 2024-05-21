@@ -8,7 +8,7 @@ import ImageCarrousel from './ImageCarrousel'
 
 const Description = styled.p`
   font-size: ${DefaultScale.h4};
-  color: ${props => props.theme.text02};
+  color: var(--theme-text-02);
 `
 
 const Links = styled.p`

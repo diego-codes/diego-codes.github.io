@@ -11,17 +11,27 @@ export default createGlobalStyle`
       box-sizing: inherit;
   }
 
+  :root {
+    --theme-bg-01: #131416;
+    --theme-text-01: #F0F6FA;
+    --theme-bg-02: #1f2123;
+    --theme-text-02: #C1D4E1;
+    --theme-bg-03: #25272A;
+    --theme-text-03: #C1D4E1;
+    --theme-primary: #65F4AD;
+  }
+
   html {
     box-sizing: border-box;
     font-family: 'Fira Sans', 'Helvetica Neue', 'Arial', sans-serif;
     font-weight: 300;
     line-height: 1.75;
-    background-color: ${props => props.theme.bg03}
+    background-color: var(--theme-bg-03)
   }
   
   body {
-    background-color: ${props => props.theme.bg01};
-    color: ${props => props.theme.text01};
+    background-color: var(--theme-bg-01);
+    color: var(--theme-text-01);
   }
 
   body, ol, ul {
@@ -63,7 +73,7 @@ export default createGlobalStyle`
     color: inherit;
     
     &:focus {
-      outline: 2px solid ${props => props.theme.primary};
+      outline: 2px solid var(--theme-primary);
     }
   }
 

@@ -14,10 +14,10 @@ const CheckboxDisplay = styled.span`
   font-size: 0.8em;
   border-radius: 0.1em;
   margin-inline-end: 0.4em;
-  border: 1px solid ${props => props.theme.primary};
-  color: ${props => props.theme.bg01};
+  border: 1px solid var(--theme-primary);
+  color: var(--theme-bg-01);
   background-color: ${props =>
-    props.selected ? props.theme.primary : 'transparent'};
+    props.selected ? 'var(--theme-primary)' : 'transparent'};
 `
 
 const Input = styled.input`
@@ -32,8 +32,7 @@ const Input = styled.input`
 
   &:focus {
     & + label ${CheckboxDisplay} {
-      box-shadow: 0 0 0 1px currentColor,
-        0 0 0 3px ${props => props.theme.primary};
+      box-shadow: 0 0 0 1px currentColor, 0 0 0 3px var(--theme-primary);
     }
   }
 `
